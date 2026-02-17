@@ -10,5 +10,4 @@
  ];
 
  wayland.windowManager.hyprland.enable = true;
- programs.fastFetch.enable = true;
 }
