@@ -1,5 +1,4 @@
 { ... }:
 {
-  imports = [ (import ./hyprpaper.nix) ]
-    ++ [ (import ./settings.nix) ];
+  imports = [ (import ./hyprpaper.nix) ];
 }
