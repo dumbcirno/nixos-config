@@ -1,11 +1,7 @@
 { pkgs, ... }:
 {
  home.packages = with pkgs; [
-    hyprland
-    xdg-desktop-portal-hyprland
-    brightnessctl
-    grimblast
-    kdePackages.dolphin
+    hypraper
  ];
 
  wayland.windowManager.hyprland.enable = true;
