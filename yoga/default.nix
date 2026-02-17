@@ -13,5 +13,6 @@
     ++ [ (import ./rofi) ]
     ++ [ (import ./swaylock.nix) ]
     ++ [ (import ./zellij.nix) ]
-    ++ [ (import ./vscode.nix) ];
+    ++ [ (import ./vscode.nix) ]
+    ++ [ (import ./fastfetch)];
 }
