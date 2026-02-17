@@ -23,8 +23,6 @@ services.pipewire = {
   pulse.enable = true;
 };
 
-programs.fastFetch.enable = true;
-
 users.users.ktp0li = {
   name = "ktp0li";
   home = "/home/ktp0li";

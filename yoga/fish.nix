@@ -9,6 +9,10 @@
     fishPlugins.tide
   ];
 
+  programs.fastFetch = {
+    enable = true
+  };
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
