@@ -1,8 +1,18 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
+let
+  # Get the flake root path
+  flakePath = builtins.toString ./.;
+in
 {
- home.packages = with pkgs; [
-    hypraper
- ];
-
- wayland.windowManager.hyprland.enable = true;
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [
+        "${flakePath}/hyprpaper/wallpaper.jpg"
+      ];
+      wallpaper = [
+        "${flakePath}/hyprpaper/wallpaper.jpg"
+      ];
+    };
+  };
 }
