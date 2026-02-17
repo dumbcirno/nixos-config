@@ -7,7 +7,7 @@
     ++ [ (import ./foot.nix) ]
     ++ [ (import ./packages.nix) ]
     ++ [ (import ./env.nix) ]
-    ++ [ (import ./hyprpaper.nix) ]
+    ++ [ (import ./hyprpaper) ]
     ++ [ (import ./colorsheme.nix ) ]
     ++ [ (import ./hypridle.nix) ]
     ++ [ (import ./rofi) ]
