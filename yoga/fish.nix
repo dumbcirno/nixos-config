@@ -10,7 +10,7 @@
   ];
 
   programs.fastFetch = {
-    enable = true
+    enable = true;
   };
 
   programs.fish = {
