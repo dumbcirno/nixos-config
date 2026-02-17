@@ -4,10 +4,10 @@
   enable = true;
   settings = {
     preload = [
-      "${./wallaper.jpg}"
+      "./wallaper.jpg"
     ];
     wallpaper = [
-      "${./wallaper.jpg}"
+      "./wallaper.jpg"
     ];
   };
 };
