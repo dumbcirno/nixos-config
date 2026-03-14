@@ -9,9 +9,7 @@
     fishPlugins.tide
   ];
 
-  programs.fastfetch = {
-    enable = true;
-  };
+  programs.fastfetch.enable = true;
 
   programs.fish = {
     enable = true;
