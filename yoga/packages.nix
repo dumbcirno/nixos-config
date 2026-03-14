@@ -14,7 +14,9 @@
     pavucontrol
     pamixer
 
-    blender
+    nodejs
+    python3
+    gcc
   ];
 
   programs.nix-index.enable = true;
