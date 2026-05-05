@@ -3,6 +3,7 @@
  home.file.".config/rofi/theme.rasi" = {
       text = ''
       * {
+    glass-bg: #00000073;
     active-background: #${config.colorScheme.palette.base03}80;
     active-foreground: @foreground;
     normal-background: transparent;
@@ -24,16 +25,16 @@
     selected-urgent-background: #${config.colorScheme.palette.base09}80;
     selected-urgent-foreground: @foreground;
 
-    background-color: @background;
+    background-color: @glass-bg;
     /* semi-transparent background for "glass" look */
-    background: #00000073;
+    background: @glass-bg;
     foreground: #${config.colorScheme.palette.base04};
     border-color: #ffffff14;
     spacing: 2;
 }
 
 #window {
-    background-color: @background;
+    background-color: @glass-bg;
     border: 2px;
     border-radius: 14px;
     padding: 2.5ch;
@@ -87,47 +88,47 @@
 }
 
 #element.normal.normal {
-    background-color: @normal-background;
+    background-color: @glass-bg;
     text-color: @normal-foreground;
 }
 
 #element.normal.urgent {
-    background-color: @urgent-background;
+    background-color: @glass-bg;
     text-color: @urgent-foreground;
 }
 
 #element.normal.active {
-    background-color: @active-background;
+    background-color: @glass-bg;
     text-color: @active-foreground;
 }
 
 #element.selected.normal {
-    background-color: @selected-normal-background;
+    background-color: @glass-bg;
     text-color: @selected-normal-foreground;
 }
 
 #element.selected.urgent {
-    background-color: @selected-urgent-background;
+    background-color: @glass-bg;
     text-color: @selected-urgent-foreground;
 }
 
 #element.selected.active {
-    background-color: @selected-active-background;
+    background-color: @glass-bg;
     text-color: @selected-active-foreground;
 }
 
 #element.alternate.normal {
-    background-color: @alternate-normal-background;
+    background-color: @glass-bg;
     text-color: @alternate-normal-foreground;
 }
 
 #element.alternate.urgent {
-    background-color: @alternate-urgent-background;
+    background-color: @glass-bg;
     text-color: @alternate-urgent-foreground;
 }
 
 #element.alternate.active {
-    background-color: @alternate-active-background;
+    background-color: @glass-bg;
     text-color: @alternate-active-foreground;
 }
 
