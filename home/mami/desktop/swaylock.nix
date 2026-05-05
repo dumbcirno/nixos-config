@@ -17,7 +17,7 @@ in {
   programs.hyprlock.settings = {
     background = {
       monitor = "";
-      path = "~/.bg/bed_2x.png";
+      path = "${../../../assets/lockpaper.jpg}";
       blur_passes = 3;
     };
 
