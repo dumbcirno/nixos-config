@@ -1,14 +1,17 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
+  xdg.configFile."fastfetch/logo.txt".source =
+    pkgs.runCommand "fastfetch-logo.txt" { } ''
+      ${pkgs.chafa}/bin/chafa -s 34x16 --symbols vhalf ${./fetch.png} > "$out"
+    '';
+
   programs.fastfetch = {
     enable = true;
     settings = {
       "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
       logo = {
-        source = "${config.xdg.configHome}/fastfetch/fetch.png";
-        type = "chafa";
-        height = 16;
-        width = 34;
+        source = "${config.xdg.configHome}/fastfetch/logo.txt";
+        type = "file-raw";
         padding = {
           top = 2;
           left = 4;
