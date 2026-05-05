@@ -8,10 +8,10 @@ in
     enable = true;
     settings = {
       preload = [
-        "${flakePath}/hyprpaper/wallpaper.jpg"
+        "${flakePath}/assets/wallpaper.jpg"
       ];
       wallpaper = [
-        "${flakePath}/hyprpaper/wallpaper.jpg"
+        ",${flakePath}/assets/wallpaper.jpg"
       ];
     };
   };
