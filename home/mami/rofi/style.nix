@@ -5,13 +5,11 @@
       * {
     /* AMOLED liquid glass (dark), Telegram-ish accent */
     accent:            #2AABEE;
-    foreground:        #E9EEF5;
-    foreground-muted:  #A8B3C2;
-    border-color:      #FFFFFF1A;
-
-    background-color:  @background;
+    background-color: @background;
     /* semi-transparent background for "glass" look */
-    background:        #000000CC;
+    background: #00000073;
+    foreground: #${config.colorScheme.palette.base04};
+    border-color: #ffffff14;
 
     active-background: #0D141DB3;
     active-foreground: @foreground;
