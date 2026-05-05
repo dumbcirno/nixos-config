@@ -9,7 +9,7 @@ fileSystems = {
   "/".options = [ "noatime" ];
 };
 
-networking.hostName = "yoga";
+networking.hostName = "mami";
 
 time.timeZone = "Europe/Moscow";
 
@@ -23,17 +23,17 @@ services.pipewire = {
   pulse.enable = true;
 };
 
-users.users.ktp0li = {
-  name = "ktp0li";
-  home = "/home/ktp0li";
+users.users.dumbcirno = {
+  name = "dumbcirno";
+  home = "/home/dumbcirno";
   isNormalUser = true;
   extraGroups = [ "wheel" "video" ]; 
   shell = pkgs.fish;
 };
 
-home-manager.users.ktp0li = {
-  home.username = "ktp0li";
-  home.homeDirectory = "/home/ktp0li";
+home-manager.users.dumbcirno = {
+  home.username = "dumbcirno";
+  home.homeDirectory = "/home/dumbcirno";
   home.stateVersion = "23.11";
 };
 

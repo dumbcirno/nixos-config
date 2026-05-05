@@ -1,5 +1,5 @@
 {
-  description = "ktp0li's dotfiles";
+  description = "bwabwabwa bwabwabwa bwabwabwaaaa";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
@@ -10,7 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nix-darwin = {
       url = "github:LnL7/nix-darwin/nix-darwin-24.11";
@@ -32,26 +31,25 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgsUnstable, home-manager, nix-colors, nixos-hardware, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:
+  outputs = { nixpkgs, nixpkgsUnstable, home-manager, nix-colors, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
       unstablePkgs = import nixpkgsUnstable { system = system; config.allowUnfree = true; };
 
     in {
-      # my personal thinkpad x1 yoga gen 6
+      # almost died hp laptop
       nixosConfigurations.mami = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./system/mami/configuration.nix
           ./system/mami/hardware-configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga
           home-manager.nixosModules.home-manager
           {
-            home-manager.users.ktp0li = {
+            home-manager.users.dumbcirno = {
               imports = [ ./home/mami/default.nix ];
-            #   home.username = "ktp0li";
-            #   home.homeDirectory = "/home/ktp0li";
+            #   home.username = "dumbcirno";
+            #   home.homeDirectory = "/home/dumbcirno";
             #   home.stateVersion = "23.11";
             };
             home-manager.extraSpecialArgs = {
