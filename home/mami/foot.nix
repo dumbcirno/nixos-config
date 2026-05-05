@@ -14,7 +14,7 @@
      color = "2AABEE 000000";
    };
    colors = {
-     alpha = 0.15;
+     alpha = 0.7;
      foreground = "E9EEF5";
      background = "000000";
 
