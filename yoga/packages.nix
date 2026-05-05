@@ -17,8 +17,14 @@
     nodejs
     python3
     gcc
+    dotnet-sdk_8
+    dotnet-runtime_8
+ 
+    # jetbrains.rider
+    hysteria
   ];
 
   programs.nix-index.enable = true;
+  nixpkgs.config.allowUnfree = true;
 }
 
