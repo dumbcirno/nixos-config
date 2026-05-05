@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Waybar custom module script.
-# Outputs JSON: {text, tooltip, class}.
-#
-# --force is accepted for on-click refresh; it just prints a new line.
-
 _arg="${1:-}"
 if [[ "${_arg}" == "--force" ]]; then
   :
@@ -14,8 +9,6 @@ elif [[ -n "${_arg}" ]]; then
   :
 fi
 
-# Pick index deterministically per-minute, but with some noise so it feels alive
-# even across restarts.
 minute="$(date +%Y%m%d%H%M)"
 seed="${minute}${RANDOM}"
 
@@ -23,14 +16,12 @@ pick() {
   local n="$1"
   # bash arithmetic on large seeds can overflow; keep it small
   local s="${seed: -6}"
-  echo $(( (10#${s} + RANDOM) % n ))
+  echo $(( (1#${s} + RANDOM) % n ))
 }
 
 # Keep these short to fit on bar; put longer stuff into tooltip.
 icons=( "" "✦" "❖" "☯" "☄" )
 
-# “Safe” recognizable lines without long copyrighted quotes.
-# More like vibes / references than verbatim dialogue.
 texts=(
   "✦ danmaku mood: ON"
   "🧪 9⑨ IQ — perfect!"
@@ -42,6 +33,10 @@ texts=(
   "🔮 fate is a configuration"
   "🌙 night patrol"
   "🧿 keep calm and graze"
+  "котлеты в бургер не вкусны"
+  "фильм земляне 2005 года смотреть всем"
+  "купи мою маму, я ее продаю"
+  "🌸 megalomania"
 )
 
 tooltips=(
