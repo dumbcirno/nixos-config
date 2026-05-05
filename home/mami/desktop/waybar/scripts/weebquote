@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Waybar custom module script.
+# Outputs JSON: {text, tooltip, class}.
+#
+# --force is accepted for on-click refresh; it just prints a new line.
+
+_arg="${1:-}"
+if [[ "${_arg}" == "--force" ]]; then
+  :
+elif [[ -n "${_arg}" ]]; then
+  # ignore unknown args to keep module resilient
+  :
+fi
+
+# Pick index deterministically per-minute, but with some noise so it feels alive
+# even across restarts.
+minute="$(date +%Y%m%d%H%M)"
+seed="${minute}${RANDOM}"
+
+pick() {
+  local n="$1"
+  # bash arithmetic on large seeds can overflow; keep it small
+  local s="${seed: -6}"
+  echo $(( (10#${s} + RANDOM) % n ))
+}
+
+# Keep these short to fit on bar; put longer stuff into tooltip.
+icons=( "" "✦" "❖" "☯" "☄" )
+
+# “Safe” recognizable lines without long copyrighted quotes.
+# More like vibes / references than verbatim dialogue.
+texts=(
+  "✦ danmaku mood: ON"
+  "🧪 9⑨ IQ — perfect!"
+  "☕ tea time, yukkuri"
+  "🪽 contract? read the fine print"
+  "🌀 reality check (magical)"
+  "🍉 azumanga energy: 100%"
+  "🐧 osaka moment…"
+  "🔮 fate is a configuration"
+  "🌙 night patrol"
+  "🧿 keep calm and graze"
+)
+
+tooltips=(
+  "Touhou vibes: danmaku, shrine, incident solving."
+  "Touhou: Cirno reference (9⑨)."
+  "Touhou-ish: take it yukkuri."
+  "Madoka: beware of “too good” offers."
+  "Madoka: magical ≠ easy."
+  "Azumanga: chaos but cozy."
+  "Azumanga: Osaka brain lag."
+  "NixOS: fate is declarative."
+  "Night mode module."
+  "Gensokyo-style calm."
+)
+
+classes=( "touhou" "touhou" "touhou" "madoka" "madoka" "azumanga" "azumanga" "meta" "meta" "touhou" )
+
+i_icon="$(pick "${#icons[@]}")"
+i_text="$(pick "${#texts[@]}")"
+
+icon="${icons[$i_icon]}"
+text="${texts[$i_text]}"
+tooltip="${tooltips[$i_text]}"
+class="${classes[$i_text]}"
+
+# Minimal JSON escaping for our limited strings.
+escape_json() {
+  local s="$1"
+  s="${s//\\/\\\\}"
+  s="${s//\"/\\\"}"
+  s="${s//$'\n'/ }"
+  printf '%s' "$s"
+}
+
+printf '{'
+printf '"text":"%s %s",' "$(escape_json "$icon")" "$(escape_json "$text")"
+printf '"tooltip":"%s",' "$(escape_json "$tooltip")"
+printf '"class":"%s"' "$(escape_json "$class")"
+printf '}\n'

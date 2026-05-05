@@ -21,6 +21,7 @@ in
 /* padding */
 
 #workspaces,
+#custom-weebquote,
 #network,
 #backlight,
 #pulseaudio,
@@ -38,6 +39,19 @@ in
 
 #battery {
   margin-right: 20px;
+}
+
+/* quote */
+
+#custom-weebquote {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.20);
+  color: ${custom.fg};
+}
+
+#custom-weebquote:hover {
+  background: rgba(0, 0, 0, 0.30);
 }
 
 /* workspaces */

@@ -9,6 +9,7 @@
     ];
     
     modules-center = [
+      "custom/weebquote"
       "clock"
     ];
 
@@ -20,6 +21,14 @@
       "pulseaudio#input"
       "battery"
   ];
+
+  "custom/weebquote" = {
+    exec = "~/.config/waybar/scripts/weebquote";
+    interval = 60;
+    return-type = "json";
+    max-length = 42;
+    on-click = "~/.config/waybar/scripts/weebquote --force";
+  };
 
   "hyprland/workspaces" = {
     "format" = "●";
