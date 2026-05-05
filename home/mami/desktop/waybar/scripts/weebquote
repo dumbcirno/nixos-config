@@ -16,7 +16,20 @@ pick() {
   local n="$1"
   # bash arithmetic on large seeds can overflow; keep it small
   local s="${seed: -6}"
-  echo $(( (1#${s} + RANDOM) % n ))
+  echo $(( (10#${s} + RANDOM) % n ))
+}
+
+# Clamp an index into an array length (fall back to last element).
+clamp_idx() {
+  local idx="$1"
+  local len="$2"
+  if (( len <= 0 )); then
+    echo 0
+  elif (( idx < len )); then
+    echo "$idx"
+  else
+    echo $((len - 1))
+  fi
 }
 
 # Keep these short to fit on bar; put longer stuff into tooltip.
@@ -59,8 +72,11 @@ i_text="$(pick "${#texts[@]}")"
 
 icon="${icons[$i_icon]}"
 text="${texts[$i_text]}"
-tooltip="${tooltips[$i_text]}"
-class="${classes[$i_text]}"
+
+i_tip="$(clamp_idx "$i_text" "${#tooltips[@]}")"
+i_cls="$(clamp_idx "$i_text" "${#classes[@]}")"
+tooltip="${tooltips[$i_tip]}"
+class="${classes[$i_cls]}"
 
 # Minimal JSON escaping for our limited strings.
 escape_json() {
