@@ -34,6 +34,7 @@
 }
 
 #window {
+    transparency: "real";
     background-color: @glass-bg;
     border: 2px;
     border-radius: 14px;
@@ -149,7 +150,7 @@
 }
 
 #button.selected {
-    background-color: @selected-normal-background;
+    background-color: transparent;
     text-color: @selected-normal-foreground;
 }
 
