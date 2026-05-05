@@ -34,7 +34,7 @@
 }
 
 #window {
-    transparency: "real";
+    transparency: real;
     background-color: @glass-bg;
     border: 2px;
     border-radius: 14px;
@@ -42,6 +42,7 @@
 }
 
 #mainbox {
+    background-color: transparent;
     border: 0;
     padding: 0;
 }
