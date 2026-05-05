@@ -3,9 +3,9 @@ let
   glass = {
     fg = "rgb(233, 238, 245)";
     fgDim = "rgba(233, 238, 245, 0.70)";
-    panel = "rgba(10, 14, 18, 0.72)";
-    panelBorder = "rgba(255, 255, 255, 0.10)";
-    accent = "rgb(42, 171, 238)";
+    panel = "rgba(0, 0, 0, 0.58)";
+    panelBorder = "rgba(255, 255, 255, 0.12)";
+    accent = "rgb(120, 210, 255)";
   };
 in {
   home.packages = with pkgs; [
@@ -18,7 +18,7 @@ in {
     background = {
       monitor = "";
       path = "~/.bg/bed_2x.png";
-      blur_passes = 2;
+      blur_passes = 3;
     };
 
     general = {
@@ -34,7 +34,7 @@ in {
       dots_size = 0.2; # scale of input-field height, 0.2 - 0.8
       dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
       dots_center = true;
-      outer_color = "rgba(0, 0, 0, 0)";
+      outer_color = glass.panelBorder;
       inner_color = glass.panel;
       font_color = glass.fg;
       fade_on_empty = false;
@@ -47,29 +47,28 @@ in {
       valign = "center";
     };
 
-      label = [
+    label = [
       {
-         monitor = "";
-         text = "cmd[update:1000] echo \"$(date +\"%-I:%M%p\")\"";
-         color = glass.fgDim;
-         font_size = 120;
-         font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-         position = "0, -300";
-         halign = "center";
-         valign = "top";
-       }
+        monitor = "";
+        text = "cmd[update:1000] echo \"$(date +\"%-I:%M%p\")\"";
+        color = glass.fgDim;
+        font_size = 120;
+        font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+        position = "0, -300";
+        halign = "center";
+        valign = "top";
+      }
 
-# USER
-       {
-         monitor = "";
-         text = "Hi there, $USER";
-         color = glass.fgDim;
-         font_size = 25;
-         font_family = "JetBrains Mono Nerd Font Mono";
-         position = "0, -40";
-         halign = "center";
-         valign = "center";
-       }
+      {
+        monitor = "";
+        text = "cmd[update:0] bash -lc \"arr=(\\\"幻想郷へようこそ。  $USER\\\" \\\"Hello, everynyan!  $USER\\\" \\\"契約して、魔法少女になってよ。  $USER\\\"); printf '%s' \\\"\\${arr[RANDOM%\\${#arr[@]}]}\\\"\"";
+        color = glass.fgDim;
+        font_size = 25;
+        font_family = "JetBrains Mono Nerd Font Mono";
+        position = "0, -40";
+        halign = "center";
+        valign = "center";
+      }
     ];
   };
 }
