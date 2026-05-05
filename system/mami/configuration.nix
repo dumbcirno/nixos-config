@@ -37,6 +37,8 @@ home-manager.users.ktp0li = {
   home.stateVersion = "23.11";
 };
 
+home-manager.backupFileExtension = "hm-bak";
+
  environment.systemPackages = with pkgs; [
    vim 
    wget
