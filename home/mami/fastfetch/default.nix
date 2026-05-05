@@ -9,7 +9,7 @@
         --format sixel \
         -s 28x14 \
         ${./fetch.png} >> "$out"
-      printf '\0338\033[28C' >> "$out"
+      printf '\0338\033[18C' >> "$out"
     '';
 
   programs.fastfetch = {
