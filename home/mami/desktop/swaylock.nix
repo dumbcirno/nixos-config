@@ -40,7 +40,7 @@ in {
       fade_on_empty = false;
       font_family = "JetBrains Mono Nerd Font Mono";
       #placeholder_text = "<span foreground=\"##cdd6f4\">Input Password...</span>";
-      placeholder_text = "Input Password…";
+      placeholder_text = "願いの代償は？";
       hide_input = false;
       position = "0, -120";
       halign = "center";
