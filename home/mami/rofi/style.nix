@@ -25,15 +25,17 @@
     selected-urgent-foreground: @foreground;
 
     background-color: @background;
-    background: #${config.colorScheme.palette.base00};
+    /* semi-transparent background for "glass" look */
+    background: rgba(0, 0, 0, 0.45);
     foreground: #${config.colorScheme.palette.base04};
-    border-color: @background;
+    border-color: rgba(255, 255, 255, 0.08);
     spacing: 2;
 }
 
 #window {
     background-color: @background;
-    border: 0;
+    border: 2px;
+    border-radius: 14px;
     padding: 2.5ch;
 }
 

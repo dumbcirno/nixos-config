@@ -58,23 +58,28 @@
       workspace_swipe_direction_lock_threshold = 3;
       workspace_swipe_min_speed_to_force = 10;
     };
-    general = {
-      border_size = 0;
-    };
     decoration = {
       blur = {
         enabled = true;
-        size = 4;
-        passes = 3;
+        size = 10;
+        passes = 4;
         new_optimizations = true;
         ignore_opacity = false;
         noise = 0.010;
+        contrast = 1.05;
+        brightness = 1.05;
+        vibrancy = 0.20;
+        vibrancy_darkness = 0.10;
       };
       shadow = {
         enabled = false;
       };
       rounding = 14;
     };
+    layerrule = [
+      "blur, rofi"
+      "ignorealpha 0.2, rofi"
+    ];
     misc = {
       vfr = true;
       disable_splash_rendering = true;
