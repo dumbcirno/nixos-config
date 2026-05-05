@@ -3,7 +3,7 @@
   xdg.configFile."fastfetch/logo.txt".source =
     pkgs.runCommand "fastfetch-logo.txt" { } ''
       ${pkgs.chafa}/bin/chafa \
-        -s 60x30 \
+        -s 34x16 \
         --colors 256 \
         --dither diffusion \
         --symbols braille \
