@@ -1,11 +1,11 @@
-{ ... }:
+{ config, ... }:
 {
   programs.fastfetch = {
     enable = true;
     settings = {
       "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
       logo = {
-        source = "~/.config/fastfetch/fetch.png";
+        source = "${config.xdg.configHome}/fastfetch/fetch.png";
         type = "chafa";
         height = 16;
         width = 34;
