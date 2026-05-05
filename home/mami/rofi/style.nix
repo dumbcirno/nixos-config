@@ -3,7 +3,7 @@
  home.file.".config/rofi/theme.rasi" = {
       text = ''
       * {
-    glass-bg: rgba(0, 0, 0, 0.45);
+    glass-bg: #00000073;
     active-background: #${config.colorScheme.palette.base03}80;
     active-foreground: @foreground;
     normal-background: transparent;
@@ -29,7 +29,7 @@
     /* semi-transparent background for "glass" look */
     background: @glass-bg;
     foreground: #${config.colorScheme.palette.base04};
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: #ffffff14;
     spacing: 2;
 }
 
