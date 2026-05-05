@@ -2,14 +2,10 @@
 {
   xdg.configFile."fastfetch/logo.sixel".source =
     pkgs.runCommand "fastfetch-logo.sixel" { } ''
-      # SIXEL output moves the cursor in some terminals.
-      # Save/restore cursor position and then move right by logo width (28)
-      printf '\0337' > "$out"
       ${pkgs.chafa}/bin/chafa \
         --format sixel \
         -s 28x14 \
-        ${./fetch.png} >> "$out"
-      printf '\0338\033[18C' >> "$out"
+        ${./fetch.png} > "$out"
     '';
 
   programs.fastfetch = {
@@ -18,7 +14,9 @@
       "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
       logo = {
         source = "${config.xdg.configHome}/fastfetch/logo.sixel";
-        type = "file-raw";
+        type = "raw";
+        width = 28;
+        height = 14;
         padding = {
           top = 0;
           left = 0;
