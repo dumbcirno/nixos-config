@@ -24,7 +24,7 @@
 
   "custom/weebquote" = {
     exec = "~/.config/waybar/scripts/weebquote";
-    interval = 1;
+    interval = 10;
     return-type = "json";
     max-length = 42;
     on-click = "~/.config/waybar/scripts/weebquote --force";

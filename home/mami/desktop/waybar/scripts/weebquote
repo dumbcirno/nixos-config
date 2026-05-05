@@ -19,64 +19,35 @@ pick() {
   echo $(( (10#${s} + RANDOM) % n ))
 }
 
-# Clamp an index into an array length (fall back to last element).
-clamp_idx() {
-  local idx="$1"
-  local len="$2"
-  if (( len <= 0 )); then
-    echo 0
-  elif (( idx < len )); then
-    echo "$idx"
-  else
-    echo $((len - 1))
-  fi
-}
-
 # Keep these short to fit on bar; put longer stuff into tooltip.
 icons=( "" "✦" "❖" "☯" "☄" )
 
-texts=(
-  "✦ danmaku mood: ON"
-  "🧪 9⑨ IQ — perfect!"
-  "☕ tea time, yukkuri"
-  "🪽 contract? read the fine print"
-  "🌀 reality check (magical)"
-  "🍉 azumanga energy: 100%"
-  "🐧 osaka moment…"
-  "🔮 fate is a configuration"
-  "🌙 night patrol"
-  "🧿 keep calm and graze"
-  "котлеты в бургер не вкусны"
-  "фильм земляне 2005 года смотреть всем"
-  "купи мою маму, я ее продаю"
-  "🌸 megalomania"
-)
+# Entries are "class<TAB>text<TAB>tooltip".
+# If tooltip is omitted, we fall back to the same string as text.
+entries=(
+  $'touhou\t✦ danmaku mood: ON\tTouhou vibes: danmaku, shrine, incident solving.'
+  $'touhou\t🧪 9⑨ IQ\tTouhou: Cirno reference (9⑨).'
+  $'touhou\t☕ tea time, yukkuri\tTouhou-ish: take it yukkuri.'
+  $'madoka\t🪽 contract? read the fine print\tMadoka: beware of “too good” offers.'
+  $'madoka\t🌀 reality check (magical)\tMadoka: magical ≠ easy.'
+  $'azumanga\t🐧 osaka moment…\tAzumanga: Osaka brain lag.'
+  $'meta\t🔮 fate is a configuration\tNixOS: fate is declarative.'
 
-tooltips=(
-  "Touhou vibes: danmaku, shrine, incident solving."
-  "Touhou: Cirno reference (9⑨)."
-  "Touhou-ish: take it yukkuri."
-  "Madoka: beware of “too good” offers."
-  "Madoka: magical ≠ easy."
-  "Azumanga: chaos but cozy."
-  "Azumanga: Osaka brain lag."
-  "NixOS: fate is declarative."
-  "Night mode module."
-  "Gensokyo-style calm."
+  # user-added lines: tooltip defaults to text if not set
+  $'meta\tкотлеты в бургер не вкусны'
+  $'meta\tфильм земляне 2005 года смотреть всем'
+  $'meta\tкупи мою маму, я ее продаю'
+  $'meta\t🌸 megalomania'
 )
-
-classes=( "touhou" "touhou" "touhou" "madoka" "madoka" "azumanga" "azumanga" "meta" "meta" "touhou" )
 
 i_icon="$(pick "${#icons[@]}")"
-i_text="$(pick "${#texts[@]}")"
+i_entry="$(pick "${#entries[@]}")"
 
 icon="${icons[$i_icon]}"
-text="${texts[$i_text]}"
-
-i_tip="$(clamp_idx "$i_text" "${#tooltips[@]}")"
-i_cls="$(clamp_idx "$i_text" "${#classes[@]}")"
-tooltip="${tooltips[$i_tip]}"
-class="${classes[$i_cls]}"
+entry="${entries[$i_entry]}"
+IFS=$'\t' read -r class text tooltip <<<"$entry"
+tooltip="${tooltip:-$text}"
+class="${class:-meta}"
 
 # Minimal JSON escaping for our limited strings.
 escape_json() {
