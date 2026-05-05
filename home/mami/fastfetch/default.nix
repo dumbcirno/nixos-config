@@ -5,8 +5,8 @@
     settings = {
       "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
       logo = {
-        source = "~/.config/fastfetch/cirno.jpeg";
-        type = "kitty";
+        source = "~/.config/fastfetch/fetch.png";
+        type = "sixel";
         height = 16;
         width = 34;
         padding = {
@@ -123,6 +123,6 @@
   };
 
   home.file = {
-    ".config/fastfetch/cirno.jpeg".source = ../../../assets/cirno.jpeg;
+    ".config/fastfetch/fetch.png".source = ./fetch.png;
   };
 }
