@@ -4,7 +4,7 @@
     pkgs.runCommand "fastfetch-logo.sixel" { } ''
       ${pkgs.chafa}/bin/chafa \
         --format sixel \
-        -s 34x16 \
+        -s 28x14 \
         ${./fetch.png} > "$out"
     '';
 
@@ -17,7 +17,7 @@
         type = "file-raw";
         padding = {
           top = 2;
-          left = 4;
+          left = 2;
         };
       };
       modules = [
