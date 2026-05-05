@@ -61,7 +61,7 @@
     decoration = {
       blur = {
         enabled = true;
-        size = 8;
+        size = 2;
         passes = 3;
         new_optimizations = true;
         ignore_opacity = false;
