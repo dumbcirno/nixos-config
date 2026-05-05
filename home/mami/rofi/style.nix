@@ -3,7 +3,7 @@
  home.file.".config/rofi/theme.rasi" = {
       text = ''
       * {
-    glass-bg: #00000073;
+    glass-bg: rgba(0, 0, 0, 0.45);
     active-background: #${config.colorScheme.palette.base03}80;
     active-foreground: @foreground;
     normal-background: transparent;
@@ -29,7 +29,7 @@
     /* semi-transparent background for "glass" look */
     background: @glass-bg;
     foreground: #${config.colorScheme.palette.base04};
-    border-color: #ffffff14;
+    border-color: rgba(255, 255, 255, 0.08);
     spacing: 2;
 }
 
@@ -68,7 +68,7 @@
 
 #listview {
     fixed-height: 0;
-    background-color: transparent;
+    background-color: @glass-bg;
     border: 2px 0px 0px;
     border-color: @border-color;
     spacing: 2px;
@@ -88,47 +88,47 @@
 }
 
 #element.normal.normal {
-    background-color: @glass-bg;
+    background-color: transparent;
     text-color: @normal-foreground;
 }
 
 #element.normal.urgent {
-    background-color: @glass-bg;
+    background-color: transparent;
     text-color: @urgent-foreground;
 }
 
 #element.normal.active {
-    background-color: @glass-bg;
+    background-color: transparent;
     text-color: @active-foreground;
 }
 
 #element.selected.normal {
-    background-color: @glass-bg;
+    background-color: transparent;
     text-color: @selected-normal-foreground;
 }
 
 #element.selected.urgent {
-    background-color: @glass-bg;
+    background-color: transparent;
     text-color: @selected-urgent-foreground;
 }
 
 #element.selected.active {
-    background-color: @glass-bg;
+    background-color: transparent;
     text-color: @selected-active-foreground;
 }
 
 #element.alternate.normal {
-    background-color: @glass-bg;
+    background-color: transparent;
     text-color: @alternate-normal-foreground;
 }
 
 #element.alternate.urgent {
-    background-color: @glass-bg;
+    background-color: transparent;
     text-color: @alternate-urgent-foreground;
 }
 
 #element.alternate.active {
-    background-color: @glass-bg;
+    background-color: transparent;
     text-color: @alternate-active-foreground;
 }
 
