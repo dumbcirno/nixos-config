@@ -61,14 +61,20 @@
     decoration = {
       blur = {
         enabled = true;
-        size = 2;
-        passes = 3;
+        size = 10;
+        passes = 4;
         new_optimizations = true;
         ignore_opacity = false;
+        noise = 0.010;
+        contrast = 1.05;
+        brightness = 1.05;
+        vibrancy = 0.20;
+        vibrancy_darkness = 0.10;
       };
       shadow = {
         enabled = false;
       };
+      rounding = 14;
     };
     misc = {
       vfr = true;
