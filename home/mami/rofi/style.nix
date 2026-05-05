@@ -29,7 +29,7 @@
     /* semi-transparent background for "glass" look */
     background: @glass-bg;
     foreground: #${config.colorScheme.palette.base04};
-    border-color: #ffffff14;
+    border-color: rgba(255, 255, 255, 0.08);
     spacing: 2;
 }
 
