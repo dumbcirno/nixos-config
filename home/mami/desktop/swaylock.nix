@@ -61,7 +61,7 @@ in {
 
       {
         monitor = "";
-        text = "cmd[update:0] bash -lc 'arr=(\"幻想郷へようこそ。  $USER\" \"Hello, everynyan!  $USER\" \"契約して、魔法少女になってよ。  $USER\"); printf \"%s\" \"\\${arr[RANDOM%\\${#arr[@]}]}\"'";
+        text = "cmd[update:0] bash -lc \"u=\\\"$USER\\\"; case $((RANDOM%3)) in 0) echo \\\"幻想郷へようこそ。  $u\\\";; 1) echo \\\"Hello, everynyan!  $u\\\";; *) echo \\\"契約して、魔法少女になってよ。  $u\\\";; esac\"";
         color = glass.fgDim;
         font_size = 25;
         font_family = "JetBrains Mono Nerd Font Mono";
