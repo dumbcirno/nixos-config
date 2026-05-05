@@ -14,9 +14,9 @@
      color = "${config.colorScheme.palette.base00} ${config.colorScheme.palette.base04}";
    };
    colors = {
-     alpha = 0.38;
+     alpha = 0.2;
      foreground = config.colorScheme.palette.base04;
-     background = config.colorScheme.palette.base07;
+     background = config.colorScheme.palette.base00;
 
      regular0 = config.colorScheme.palette.base01;
      regular1 = config.colorScheme.palette.base08;
