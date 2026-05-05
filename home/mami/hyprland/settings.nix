@@ -58,10 +58,13 @@
       workspace_swipe_direction_lock_threshold = 3;
       workspace_swipe_min_speed_to_force = 10;
     };
+    general = {
+      border_size = 0;
+    };
     decoration = {
       blur = {
         enabled = true;
-        size = 10;
+        size = 4;
         passes = 4;
         new_optimizations = true;
         ignore_opacity = false;
