@@ -25,6 +25,8 @@
     hysteria
 
     amnezia-vpn
+
+    gajim
   ];
 
   programs.nix-index.enable = true;
