@@ -23,6 +23,8 @@
  
     # jetbrains.rider
     hysteria
+
+    amnezia-vpn
   ];
 
   programs.nix-index.enable = true;
