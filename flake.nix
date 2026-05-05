@@ -40,16 +40,16 @@
 
     in {
       # my personal thinkpad x1 yoga gen 6
-      nixosConfigurations.yoga = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.mami = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./yoga/configuration.nix
-          ./yoga/hardware-configuration.nix
+          ./system/mami/configuration.nix
+          ./system/mami/hardware-configuration.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-yoga
           home-manager.nixosModules.home-manager
           {
             home-manager.users.ktp0li = {
-              imports = [ ./yoga/default.nix ];
+              imports = [ ./home/mami/default.nix ];
             #   home.username = "ktp0li";
             #   home.homeDirectory = "/home/ktp0li";
             #   home.stateVersion = "23.11";
