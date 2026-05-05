@@ -6,6 +6,7 @@
     wl-clipboard # wayland clipboard tool
     telegram-desktop
     git
+    chafa
     nil # lsp for nix
     nordic # gtk nord theme
     libqalculate # calculator
