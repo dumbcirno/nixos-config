@@ -1,19 +1,12 @@
-{ config, lib, pkgs, ... }:
-let 
-  hexToRgb = hexstring:
-    let
-      hexx = lib.strings.match "([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})" hexstring;
-      values = map (s: (builtins.fromTOML "a = 0x${s}").a) hexx;
-    in
-    {
-      r = toString (builtins.elemAt values 0);
-      g = toString (builtins.elemAt values 1);
-      b = toString (builtins.elemAt values 2);
-    };
-
-    clock_color = hexToRgb(config.colorScheme.palette.base04);
-    input_color = hexToRgb(config.colorScheme.palette.base00);
-    input_text_color = hexToRgb(config.colorScheme.palette.base03);
+{ pkgs, ... }:
+let
+  glass = {
+    fg = "rgb(233, 238, 245)";
+    fgDim = "rgba(233, 238, 245, 0.70)";
+    panel = "rgba(10, 14, 18, 0.72)";
+    panelBorder = "rgba(255, 255, 255, 0.10)";
+    accent = "rgb(42, 171, 238)";
+  };
 in {
   home.packages = with pkgs; [
     hyprlock
@@ -25,7 +18,7 @@ in {
     background = {
       monitor = "";
       path = "~/.bg/bed_2x.png";
-      blur_passes = 0;
+      blur_passes = 2;
     };
 
     general = {
@@ -42,12 +35,12 @@ in {
       dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
       dots_center = true;
       outer_color = "rgba(0, 0, 0, 0)";
-      inner_color = "rgb(${input_color.r}, ${input_color.g}, ${input_color.b})";
-      font_color = "rgb(${input_text_color.r}, ${input_text_color.g}, ${input_text_color.b})";
+      inner_color = glass.panel;
+      font_color = glass.fg;
       fade_on_empty = false;
       font_family = "JetBrains Mono Nerd Font Mono";
       #placeholder_text = "<span foreground=\"##cdd6f4\">Input Password...</span>";
-      placeholder_text = "Input Password...";
+      placeholder_text = "<span foreground=\"${glass.fgDim}\">Input Password...</span>";
       hide_input = false;
       position = "0, -120";
       halign = "center";
@@ -58,7 +51,7 @@ in {
       {
          monitor = "";
          text = "cmd[update:1000] echo \"$(date +\"%-I:%M%p\")\"";
-         color = "rgb(${clock_color.r}, ${clock_color.g}, ${clock_color.b})";
+         color = glass.fgDim;
          font_size = 120;
          font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
          position = "0, -300";
@@ -70,7 +63,7 @@ in {
        {
          monitor = "";
          text = "Hi there, $USER";
-         color = "rgb(${clock_color.r}, ${clock_color.g}, ${clock_color.b})";
+         color = glass.fgDim;
          font_size = 25;
          font_family = "JetBrains Mono Nerd Font Mono";
          position = "0, -40";

@@ -2,13 +2,18 @@
 let custom = {
   font = "Jetbrains Mono";
   font_size = "16px";
-  background = "1D2433";
+  background = "rgba(0, 0, 0, 0.55)";
+  fg = "rgba(233, 238, 245, 0.88)";
+  fg_dim = "rgba(233, 238, 245, 0.62)";
+  accent = "#2AABEE";
+  danger = "#FF3B30";
 };
 in 
 {
   programs.waybar.style = ''
 #waybar {
-  background: #${custom.background};
+  background: ${custom.background};
+  color: ${custom.fg};
   font-family: ${custom.font};
   font-size: ${custom.font_size};
 }
@@ -40,21 +45,21 @@ in
 #workspaces button {
   font-size: ${custom.font_size};
   padding: 0 1px;
-  color: #${config.colorScheme.palette.base03};
+  color: ${custom.fg_dim};
   border: none;
 }
 
 #workspaces button.active {
-  color: #${config.colorScheme.palette.base0D};
+  color: ${custom.accent};
 }
 
 #workspaces button.urgent {
-  color: #${config.colorScheme.palette.base08};
+  color: ${custom.danger};
 }
 
 #workspaces button:hover {
   background: none;
-  color: #${config.colorScheme.palette.base0E}; 
+  color: ${custom.accent};
 }
   '';
 }

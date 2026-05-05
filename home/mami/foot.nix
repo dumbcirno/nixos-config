@@ -11,30 +11,30 @@
    };
    cursor = {
      #color = "2e3440 d8dee9";
-     color = "${config.colorScheme.palette.base00} ${config.colorScheme.palette.base04}";
+     color = "2AABEE 000000";
    };
    colors = {
-     alpha = 0.2;
-     foreground = config.colorScheme.palette.base04;
-     background = config.colorScheme.palette.base00;
+     alpha = 0.15;
+     foreground = "E9EEF5";
+     background = "000000";
 
-     regular0 = config.colorScheme.palette.base01;
-     regular1 = config.colorScheme.palette.base08;
-     regular2 = config.colorScheme.palette.base0B;
-     regular3 = config.colorScheme.palette.base07;
-     regular4 = config.colorScheme.palette.base0D;
-     regular5 = config.colorScheme.palette.base0E;
-     regular6 = config.colorScheme.palette.base0C;
-     regular7 = config.colorScheme.palette.base05;
+     regular0 = "0B0F14";
+     regular1 = "FF3B30";
+     regular2 = "34C759";
+     regular3 = "FFCC00";
+     regular4 = "2AABEE";
+     regular5 = "AF52DE";
+     regular6 = "32D7FF";
+     regular7 = "E9EEF5";
 
-     bright0 = config.colorScheme.palette.base03;
-     bright1 = config.colorScheme.palette.base08;
-     bright2 = config.colorScheme.palette.base0B;
-     bright3 = config.colorScheme.palette.base0A;
-     bright4 = config.colorScheme.palette.base0D;
-     bright5 = config.colorScheme.palette.base0E;
-     bright6 = config.colorScheme.palette.base07;
-     bright7 = config.colorScheme.palette.base06;
+     bright0 = "6B7280";
+     bright1 = "FF453A";
+     bright2 = "30D158";
+     bright3 = "FFD60A";
+     bright4 = "64D2FF";
+     bright5 = "BF5AF2";
+     bright6 = "66D4FF";
+     bright7 = "F5F7FA";
 
 #     foreground = "d8dee9";
 #     background = "2e3440";

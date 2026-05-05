@@ -40,7 +40,7 @@
 
   "pulseaudio#input" = {
     format = "{format_source}";
-    format-source = "<span color='#D67C8E'>󰍬 on</span>";
+    format-source = "<span color='#2AABEE'>󰍬 on</span>";
     format-source-muted = "󰍭 off";
 
     on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";

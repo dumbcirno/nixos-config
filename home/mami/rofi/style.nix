@@ -3,11 +3,21 @@
  home.file.".config/rofi/theme.rasi" = {
       text = ''
       * {
-    active-background: #${config.colorScheme.palette.base03}80;
+    /* AMOLED liquid glass (dark), Telegram-ish accent */
+    accent:            #2AABEE;
+    foreground:        #E9EEF5;
+    foreground-muted:  #A8B3C2;
+    border-color:      #FFFFFF1A;
+
+    background-color:  @background;
+    /* semi-transparent background for "glass" look */
+    background:        #000000CC;
+
+    active-background: #0D141DB3;
     active-foreground: @foreground;
     normal-background: transparent;
     normal-foreground: @foreground;
-    urgent-background: #${config.colorScheme.palette.base08}80;
+    urgent-background: #FF3B30B3;
     urgent-foreground: @foreground;
 
     alternate-active-background: transparent;
@@ -21,14 +31,8 @@
     selected-active-foreground: @foreground;
     selected-normal-background: @active-background;
     selected-normal-foreground: @foreground;
-    selected-urgent-background: #${config.colorScheme.palette.base09}80;
+    selected-urgent-background: #FF9500B3;
     selected-urgent-foreground: @foreground;
-
-    background-color: @background;
-    /* semi-transparent background for "glass" look */
-    background: #00000073;
-    foreground: #${config.colorScheme.palette.base04};
-    border-color: #ffffff14;
     spacing: 2;
 }
 
