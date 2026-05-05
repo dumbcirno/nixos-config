@@ -3,7 +3,6 @@
  home.file.".config/rofi/theme.rasi" = {
       text = ''
       * {
-    glass-bg: #00000073;
     active-background: #${config.colorScheme.palette.base03}80;
     active-foreground: @foreground;
     normal-background: transparent;
@@ -25,24 +24,22 @@
     selected-urgent-background: #${config.colorScheme.palette.base09}80;
     selected-urgent-foreground: @foreground;
 
-    background-color: @glass-bg;
+    background-color: @background;
     /* semi-transparent background for "glass" look */
-    background: @glass-bg;
+    background: #00000073;
     foreground: #${config.colorScheme.palette.base04};
-    border-color: transparent;
+    border-color: #ffffff14;
     spacing: 2;
 }
 
 #window {
-    transparency: real;
-    background-color: @glass-bg;
+    background-color: @background;
     border: 2px;
     border-radius: 14px;
     padding: 2.5ch;
 }
 
 #mainbox {
-    background-color: transparent;
     border: 0;
     padding: 0;
 }
@@ -70,7 +67,7 @@
 
 #listview {
     fixed-height: 0;
-    background-color: @glass-bg;
+    background-color: transparent;
     border: 2px 0px 0px;
     border-color: @border-color;
     spacing: 2px;
@@ -151,7 +148,7 @@
 }
 
 #button.selected {
-    background-color: transparent;
+    background-color: @selected-normal-background;
     text-color: @selected-normal-foreground;
 }
 
