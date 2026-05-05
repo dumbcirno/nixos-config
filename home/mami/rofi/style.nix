@@ -5,16 +5,16 @@
       * {
     active-background: #${config.colorScheme.palette.base03};
     active-foreground: @foreground;
-    normal-background: @background;
+    normal-background: transparent;
     normal-foreground: @foreground;
     urgent-background: #${config.colorScheme.palette.base08};
     urgent-foreground: @foreground;
 
-    alternate-active-background: @background;
+    alternate-active-background: transparent;
     alternate-active-foreground: @foreground;
-    alternate-normal-background: @background;
+    alternate-normal-background: transparent;
     alternate-normal-foreground: @foreground;
-    alternate-urgent-background: @background;
+    alternate-urgent-background: transparent;
     alternate-urgent-foreground: @foreground;
 
     selected-active-background: @urgent-background;
@@ -26,9 +26,9 @@
 
     background-color: @background;
     /* semi-transparent background for "glass" look */
-    background: rgba(0, 0, 0, 0.45);
+    background: #00000073;
     foreground: #${config.colorScheme.palette.base04};
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: #ffffff14;
     spacing: 2;
 }
 
