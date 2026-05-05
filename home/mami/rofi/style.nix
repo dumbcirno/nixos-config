@@ -3,11 +3,11 @@
  home.file.".config/rofi/theme.rasi" = {
       text = ''
       * {
-    active-background: #${config.colorScheme.palette.base03};
+    active-background: #${config.colorScheme.palette.base03}80;
     active-foreground: @foreground;
     normal-background: transparent;
     normal-foreground: @foreground;
-    urgent-background: #${config.colorScheme.palette.base08};
+    urgent-background: #${config.colorScheme.palette.base08}80;
     urgent-foreground: @foreground;
 
     alternate-active-background: transparent;
@@ -21,7 +21,7 @@
     selected-active-foreground: @foreground;
     selected-normal-background: @active-background;
     selected-normal-foreground: @foreground;
-    selected-urgent-background: #${config.colorScheme.palette.base09};
+    selected-urgent-background: #${config.colorScheme.palette.base09}80;
     selected-urgent-foreground: @foreground;
 
     background-color: @background;
@@ -67,6 +67,7 @@
 
 #listview {
     fixed-height: 0;
+    background-color: transparent;
     border: 2px 0px 0px;
     border-color: @border-color;
     spacing: 2px;
@@ -77,6 +78,7 @@
 #element {
     border: 0;
     padding: 1px;
+    background-color: transparent;
 }
 
 #element-text, element-icon {
