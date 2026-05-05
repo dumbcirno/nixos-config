@@ -12,3 +12,4 @@
     default_layout = "compact";
   };
 }
+
