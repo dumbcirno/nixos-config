@@ -40,7 +40,7 @@ in {
       fade_on_empty = false;
       font_family = "JetBrains Mono Nerd Font Mono";
       #placeholder_text = "<span foreground=\"##cdd6f4\">Input Password...</span>";
-      placeholder_text = "<span foreground=\"${glass.fgDim}\">Input Password...</span>";
+      placeholder_text = "Input Password…";
       hide_input = false;
       position = "0, -120";
       halign = "center";
@@ -61,9 +61,7 @@ in {
 
       {
         monitor = "";
-        text = ''
-          cmd[update:0] bash -lc 'arr=("幻想郷へようこそ。  $USER" "Hello, everynyan!  $USER" "契約して、魔法少女になってよ。  $USER"); printf "%s" "''${arr[RANDOM%''${#arr[@]}]}"'
-        '';
+        text = "cmd[update:0] bash -lc 'arr=(\"幻想郷へようこそ。  $USER\" \"Hello, everynyan!  $USER\" \"契約して、魔法少女になってよ。  $USER\"); printf \"%s\" \"\\${arr[RANDOM%\\${#arr[@]}]}\"'";
         color = glass.fgDim;
         font_size = 25;
         font_family = "JetBrains Mono Nerd Font Mono";
