@@ -6,10 +6,10 @@
     enable = true;
     settings = {
       preload = [
-        "${../../../../assets/wallpaper.jpg}"
+        "${../../../../assets/wallpaper.png}"
       ];
       wallpaper = [
-        ",${../../../../assets/wallpaper.jpg}"
+        ",${../../../../assets/wallpaper.png}"
       ];
     };
   };
