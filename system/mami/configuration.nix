@@ -6,7 +6,16 @@ boot.loader.efi.canTouchEfiVariables = true;
 
 fileSystems = {
   "/boot".options = [ "fmask=0022" "dmask=0022" ];
-  "/".options = [ "noatime" ];
+  "/".options = [
+    "noatime"
+    "compress=zstd"
+    "discard=async"
+  ];
+};
+
+services.btrfs.autoScrub = {
+  enable = true;
+  fileSystems = [ "/" ];
 };
 
 networking.hostName = "mami";
@@ -47,9 +56,8 @@ home-manager.backupFileExtension = "hm-bak";
 ];
 
 fonts.packages = with pkgs; [
-  jetbrains-mono
-  #(nerdfonts.override { fonts = [ "JetBrainsMono"]; })
-  nerd-fonts.jetbrains-mono
+   jetbrains-mono
+   nerd-fonts.jetbrains-mono
   noto-fonts
   noto-fonts-cjk-sans
 ];
