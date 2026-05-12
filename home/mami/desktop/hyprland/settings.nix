@@ -15,8 +15,8 @@
       "$mod, V, togglefloating, "
       "$mod, F, fullscreen, "
       "$mod, D, exec, rofi -show drun"
-      "$mod, P, pseudo," # dwindle
-      "$mod, J, togglesplit," # dwindle
+      "$mod, P, pseudo,"
+      "$mod, J, togglesplit,"
       "$mod, left, movefocus, l"
       "$mod, right, movefocus, r"
       "$mod, up, movefocus, u"
@@ -36,9 +36,7 @@
       ",Print,exec,grimblast copy"
       "$mod,Print,exec,grimblast copy area"
       ]
-      # generate entry like "$mod, 1, workspace, 1"
       ++ map (x: "$mod, ${toString (lib.mod x 10)}, workspace, ${toString x}") (lib.lists.range 1 10)
-      # generate entry like "$mod SHIFT, 1, movetoworkspace, 1"
       ++ map (x: "$mod SHIFT, ${toString (lib.mod x 10)}, movetoworkspace, ${toString x}") (lib.lists.range 1 10);
     bindm = [
       "bindm = $mod, mouse:272, movewindow"

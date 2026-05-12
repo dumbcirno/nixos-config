@@ -18,8 +18,6 @@ in
   font-size: ${custom.font_size};
 }
 
-/* padding */
-
 #workspaces,
 #custom-weebquote,
 #network,
@@ -41,8 +39,6 @@ in
   margin-right: 20px;
 }
 
-/* quote */
-
 #custom-weebquote {
   padding: 6px 12px;
   border-radius: 999px;
@@ -53,8 +49,6 @@ in
 #custom-weebquote:hover {
   background: rgba(0, 0, 0, 0.30);
 }
-
-/* workspaces */
 
 #workspaces button {
   font-size: ${custom.font_size};

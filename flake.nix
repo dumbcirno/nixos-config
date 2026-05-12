@@ -38,7 +38,6 @@
       unstablePkgs = import nixpkgsUnstable { system = system; config.allowUnfree = true; };
 
     in {
-      # almost died hp laptop
       nixosConfigurations.mami = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -48,9 +47,6 @@
           {
             home-manager.users.dumbcirno = {
               imports = [ ./home/mami/default.nix ];
-            #   home.username = "dumbcirno";
-            #   home.homeDirectory = "/home/dumbcirno";
-            #   home.stateVersion = "23.11";
             };
             home-manager.extraSpecialArgs = {
               inherit nix-colors;

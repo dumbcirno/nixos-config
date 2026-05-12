@@ -73,7 +73,7 @@
     format = "{:%H:%M}";
 
     tooltip = true;
-    tooltip-format = "{:%e %B, %A}";  # 2 April, Saturday
+    tooltip-format = "{:%e %B, %A}";
   };
 
   backlight = {

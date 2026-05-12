@@ -3,15 +3,14 @@
   home.packages = with pkgs; [
     firefox
     neovim
-    wl-clipboard # wayland clipboard tool
+    wl-clipboard
     telegram-desktop
     git
     chafa
-    nil # lsp for nix
-    nordic # gtk nord theme
-    libqalculate # calculator
+    nil
+    nordic
+    libqalculate
 
-    # tools for audio management
     pavucontrol
     pamixer
 
@@ -20,8 +19,7 @@
     gcc
     dotnet-sdk_8
     dotnet-runtime_8
- 
-    # jetbrains.rider
+
     hysteria
 
     amnezia-vpn

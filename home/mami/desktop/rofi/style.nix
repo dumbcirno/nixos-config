@@ -3,10 +3,8 @@
  home.file.".config/rofi/theme.rasi" = {
       text = ''
       * {
-    /* AMOLED liquid glass (dark), Telegram-ish accent */
     accent:            #2AABEE;
     background-color: @background;
-    /* semi-transparent background for "glass" look */
     background: #00000073;
     foreground: #${config.colorScheme.palette.base04};
     border-color: #ffffff14;

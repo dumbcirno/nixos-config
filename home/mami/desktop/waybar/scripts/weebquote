@@ -5,7 +5,6 @@ _arg="${1:-}"
 if [[ "${_arg}" == "--force" ]]; then
   :
 elif [[ -n "${_arg}" ]]; then
-  # ignore unknown args to keep module resilient
   :
 fi
 
@@ -14,7 +13,6 @@ seed="${minute}${RANDOM}"
 
 pick() {
   local n="$1"
-  # bash arithmetic on large seeds can overflow; keep it small
   local s="${seed: -6}"
   echo $(( (10#${s} + RANDOM) % n ))
 }
