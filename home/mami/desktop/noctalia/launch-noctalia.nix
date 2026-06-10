@@ -3,8 +3,6 @@ let
   noctaliaPackage = noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
   name = "launch-noctalia";
   drv = pkgs.writeShellScript name ''
-    set -eu
-
     if ${pkgs.procps}/bin/pgrep -x noctalia >/dev/null 2>&1; then
       exit 0
     fi
@@ -14,7 +12,7 @@ let
     export GDK_BACKEND=wayland
     export GTK_USE_PORTAL=0
 
-    for _ in $(${pkgs.coreutils}/bin/seq 1 50); do
+    for _ in $(${pkgs.coreutils}/bin/seq 1 100); do
       if [ -n "''${WAYLAND_DISPLAY:-}" ]; then
         break
       fi
@@ -36,7 +34,7 @@ let
       exit 1
     fi
 
-    exec ${lib.getExe noctaliaPackage}
+    ${lib.getExe noctaliaPackage} &
   '';
 in
 "${drv}/${name}"

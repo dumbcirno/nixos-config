@@ -6,7 +6,7 @@
   ];
 
   programs.zellij.enable = true;
-  programs.zellij.enableFishIntegration = true;
+  programs.zellij.enableFishIntegration = false;
   programs.zellij.settings = {
     theme = "nord";
     default_layout = "compact";

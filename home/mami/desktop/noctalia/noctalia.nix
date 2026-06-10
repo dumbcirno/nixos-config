@@ -5,7 +5,10 @@ let
   pluginRoot = ./plugins;
 in
 {
-  imports = [ (import ./settings.nix { inherit wallpaper lockpaper; }) ];
+  imports = [
+    (import ./settings.nix { inherit wallpaper lockpaper; })
+    ./systemd.nix
+  ];
 
   programs.noctalia = {
     enable = true;

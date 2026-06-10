@@ -15,6 +15,15 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting
+
+      # Start a full niri session (systemd + noctalia) when launching from a TTY.
+      function niri --wraps niri
+        if not set -q WAYLAND_DISPLAY; and not set -q NIRI_SOCKET
+          command niri-session $argv
+        else
+          command niri $argv
+        end
+      end
     '';
     plugins = [
       {name = "grc"; src = pkgs.fishPlugins.grc.src;}
