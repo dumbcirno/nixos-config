@@ -24,6 +24,8 @@ in
   programs.niri.settings = {
       xwayland-satellite.path = lib.getExe linuxUnstablePkgs.xwayland-satellite;
 
+      screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+
       spawn-at-startup = [
         { argv = [ exportPortalEnv ]; }
         { argv = [ launchNoctalia ]; }
@@ -113,8 +115,9 @@ in
             "set"
             "10%-"
           ];
-          "Print".action.spawn = [ "grimblast" "copy" ];
-          "Mod+Print".action.spawn = [ "grimblast" "copy" "area" ];
+          "Print".action.screenshot = [ ];
+          "Mod+Print".action.screenshot-screen = [ ];
+          "Alt+Print".action.screenshot-window = [ ];
         }
         // workspaceFocusBinds
         // workspaceMoveBinds;
