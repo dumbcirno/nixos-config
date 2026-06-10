@@ -1,5 +1,7 @@
 { config, lib, linuxUnstablePkgs, pkgs, ... }:
 {
+  imports = [ ./greetd.nix ];
+
 boot.loader = {
   grub = {
     enable = true;
