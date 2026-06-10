@@ -65,7 +65,7 @@
             # Only the HM config module — not nixosModules.niri, which adds niri.cachix.org.
             home-manager.sharedModules = [
               niri.homeModules.config
-              walker.homeModules.default
+              walker.homeManagerModules.default
               (
                 { lib, ... }:
                 {
