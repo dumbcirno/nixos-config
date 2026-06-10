@@ -1,6 +1,7 @@
-{ lib, linuxUnstablePkgs, pkgs, ... }:
+{ lib, linuxUnstablePkgs, pkgs, noctalia, ... }:
 let
   exportPortalEnv = import ./portal-env-script.nix pkgs;
+  launchNoctalia = import ../noctalia/launch-noctalia.nix { inherit lib pkgs noctalia; };
   workspaceFocusBinds = lib.listToAttrs (
     map (x: {
       name = "Mod+${toString (lib.mod x 10)}";
@@ -24,6 +25,7 @@ in
 
       spawn-at-startup = [
         { argv = [ exportPortalEnv ]; }
+        { argv = [ launchNoctalia ]; }
       ];
 
       input = {

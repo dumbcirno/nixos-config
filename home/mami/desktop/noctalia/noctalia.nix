@@ -1,4 +1,4 @@
-{ noctalia, lib, pkgs, ... }:
+{ noctalia, pkgs, ... }:
 let
   wallpaper = "${../../../../assets/wallpaper.png}";
   lockpaper = "${../../../../assets/lockpaper.jpg}";
@@ -9,7 +9,7 @@ in
 
   programs.noctalia = {
     enable = true;
-    systemd.enable = true;
+    systemd.enable = false;
     package = noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
     customPalettes.mami = {
@@ -43,21 +43,6 @@ in
     "noctalia/plugins/mami/weebquote" = {
       source = "${pluginRoot}/weebquote";
       recursive = true;
-    };
-  };
-
-  systemd.user.services.noctalia = {
-    Unit = {
-      PartOf = lib.mkForce [ "niri.service" ];
-      After = lib.mkForce [ "niri-portal-env.service" "niri.service" ];
-      Requires = [ "niri-portal-env.service" ];
-    };
-    Install = {
-      WantedBy = lib.mkForce [ "niri.service" ];
-    };
-    Service = {
-      Restart = "on-failure";
-      RestartSec = 2;
     };
   };
 }

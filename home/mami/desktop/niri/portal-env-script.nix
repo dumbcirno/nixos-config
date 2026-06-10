@@ -43,8 +43,6 @@ let
       xdg-desktop-portal-gtk.service 2>/dev/null || true
 
     ${pkgs.systemd}/bin/systemctl --user restart xdg-desktop-portal.service 2>/dev/null || true
-
-    ${pkgs.systemd}/bin/systemctl --user start noctalia.service 2>/dev/null || true
   '';
 in
 "${drv}/${name}"
