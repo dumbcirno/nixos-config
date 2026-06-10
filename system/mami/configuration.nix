@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ niri, pkgs, ... }:
 {
 boot.loader = {
   grub = {
@@ -69,7 +69,10 @@ fonts.packages = with pkgs; [
 ];
 
 programs.fish.enable = true;
-programs.hyprland.enable = true;
+programs.niri = {
+  enable = true;
+  package = niri.packages.${pkgs.system}.niri-unstable;
+};
 environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
 system.stateVersion = "25.05"; 

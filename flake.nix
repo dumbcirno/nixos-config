@@ -11,6 +11,11 @@
     };
     nix-colors.url = "github:misterio77/nix-colors";
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin/nix-darwin-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +36,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgsUnstable, home-manager, nix-colors, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:
+  outputs = { nixpkgs, nixpkgsUnstable, home-manager, nix-colors, niri, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -40,16 +45,18 @@
     in {
       nixosConfigurations.mami = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit niri; };
         modules = [
           ./system/mami/configuration.nix
           ./system/mami/hardware-configuration.nix
+          niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
             home-manager.users.dumbcirno = {
               imports = [ ./home/mami/default.nix ];
             };
             home-manager.extraSpecialArgs = {
-              inherit nix-colors;
+              inherit nix-colors niri;
             };
           }
         ];

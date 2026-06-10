@@ -5,7 +5,7 @@
     spacing = 8;
 
     modules-left = [
-      "hyprland/workspaces"
+      "niri/workspaces"
     ];
     
     modules-center = [
@@ -14,7 +14,7 @@
     ];
 
     modules-right = [
-      "hyprland/language"
+      "niri/language"
       "network"
       "backlight"
       "wireplumber#output"
@@ -30,7 +30,7 @@
     on-click = "~/.config/waybar/scripts/weebquote --force";
   };
 
-  "hyprland/workspaces" = {
+  "niri/workspaces" = {
     "format" = "●";
   };
 
@@ -63,10 +63,9 @@
     on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
     };
 
-  "hyprland/language" = {
-    format = "󰌌 {}";
-    format-en = "us";
-    format-ru = "ru";
+  "niri/language" = {
+    format-en = "󰌌 us";
+    format-ru = "󰌌 ru";
   };
 
   clock = {

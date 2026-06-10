@@ -1,12 +1,11 @@
 { ... }:
 {
   imports = [
-    ./hyprland
-    ./hyprpaper
+    ./niri
     ./waybar
     ./rofi
     ./gtk.nix
-    ./hypridle.nix
+    ./swayidle.nix
     ./swaylock.nix
   ];
 }

@@ -1,74 +1,45 @@
 { pkgs, ... }:
 let
   glass = {
-    fg = "rgb(233, 238, 245)";
-    fgDim = "rgba(233, 238, 245, 0.70)";
-    panel = "rgba(0, 0, 0, 0.58)";
-    panelBorder = "rgba(255, 255, 255, 0.12)";
-    accent = "rgb(120, 210, 255)";
+    fg = "e9eef5";
+    fgDim = "e9eef5b3";
+    panel = "00000094";
+    panelBorder = "ffffff1f";
+    accent = "78d2ff";
   };
+  lockpaper = "${../../../assets/lockpaper.jpg}";
 in {
-  home.packages = with pkgs; [
-    hyprlock
-  ];
-
-  programs.hyprlock.enable = true;
-
-  programs.hyprlock.settings = {
-    background = {
-      monitor = "";
-      path = "${../../../assets/lockpaper.jpg}";
-      blur_passes = 3;
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      image = lockpaper;
+      scaling = "fill";
+      font = "JetBrains Mono Nerd Font Mono";
+      font-size = 25;
+      indicator-radius = 14;
+      indicator-thickness = 2;
+      indicator-idle-visible = true;
+      indicator-stroke = 0;
+      inside-color = "00000000";
+      inside-clear-color = "00000000";
+      inside-caps-lock-color = "00000000";
+      inside-ver-color = "00000000";
+      inside-wrong-color = "00000000";
+      ring-color = glass.panelBorder;
+      ring-clear-color = glass.panelBorder;
+      ring-caps-lock-color = glass.panelBorder;
+      ring-ver-color = glass.accent;
+      ring-wrong-color = "ff3b30";
+      separator-color = "00000000";
+      text-color = glass.fg;
+      text-clear-color = glass.fg;
+      text-caps-lock-color = glass.fg;
+      text-ver-color = glass.fg;
+      text-wrong-color = glass.fg;
+      key-layout = "us";
+      show-failed-attempts = true;
+      show-keyboard-layout = false;
     };
-
-    general = {
-      no_fade_in = false;
-      grace = 0;
-      disable_loading_bar = true;
-    };
-
-    input-field = {
-      monitor = "";
-      size = "250, 60";
-      outline_thickness = 2;
-      dots_size = 0.2;
-      dots_spacing = 0.2;
-      dots_center = true;
-      outer_color = glass.panelBorder;
-      inner_color = glass.panel;
-      font_color = glass.fg;
-      fade_on_empty = false;
-      font_family = "JetBrains Mono Nerd Font Mono";
-      placeholder_text = "願いの代償は？";
-      hide_input = false;
-      position = "0, -120";
-      halign = "center";
-      valign = "center";
-    };
-
-    label = [
-      {
-        monitor = "";
-        text = "cmd[update:1000] echo \"$(date +\"%-I:%M%p\")\"";
-        color = glass.fgDim;
-        font_size = 120;
-        font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
-        position = "0, -300";
-        halign = "center";
-        valign = "top";
-      }
-
-      {
-        monitor = "";
-        text = "cmd[update:0] bash -lc \"u=\\\"$USER\\\"; case $((RANDOM%3)) in 0) echo \\\"幻想郷へようこそ。  $u\\\";; 1) echo \\\"Hello, everynyan!  $u\\\";; *) echo \\\"契約して、魔法少女になってよ。  $u\\\";; esac\"";
-        color = glass.fgDim;
-        font_size = 25;
-        font_family = "JetBrains Mono Nerd Font Mono";
-        position = "0, -40";
-        halign = "center";
-        valign = "center";
-      }
-    ];
   };
-}
 
+}
