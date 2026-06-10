@@ -5,5 +5,8 @@
   ] ++ (with pkgs; [
     brightnessctl
     kdePackages.dolphin
+    swaybg
+    swayidle
+    mako
   ]);
 }
