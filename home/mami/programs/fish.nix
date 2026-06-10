@@ -16,7 +16,7 @@
     interactiveShellInit = ''
       set fish_greeting
 
-      # Start a full niri session (systemd + noctalia) when launching from a TTY.
+      # Start a full niri session (systemd + waybar / walker) when launching from a TTY.
       function niri --wraps niri
         if not set -q WAYLAND_DISPLAY; and not set -q NIRI_SOCKET
           command niri-session $argv
