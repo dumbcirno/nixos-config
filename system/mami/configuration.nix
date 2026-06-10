@@ -1,8 +1,14 @@
 { pkgs, ... }:
 {
-boot.loader.systemd-boot.enable = true;
-boot.loader.efi.canTouchEfiVariables = true;
-
+boot.loader = {
+  grub = {
+    enable = true;
+    efiSupport = true;
+    device = "nodev";
+    efiInstallAsRemovable = false;
+  };
+  efi.canTouchEfiVariables = true;
+};
 
 fileSystems = {
   "/boot".options = [ "fmask=0022" "dmask=0022" ];
@@ -43,7 +49,7 @@ users.users.dumbcirno = {
 home-manager.users.dumbcirno = {
   home.username = "dumbcirno";
   home.homeDirectory = "/home/dumbcirno";
-  home.stateVersion = "23.11";
+  home.stateVersion = "25.05";
 };
 
 home-manager.backupFileExtension = "hm-bak";
@@ -66,7 +72,7 @@ programs.fish.enable = true;
 programs.hyprland.enable = true;
 environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-system.stateVersion = "23.11"; 
+system.stateVersion = "25.05"; 
 
 nixpkgs.config.allowUnfree = true;
 
