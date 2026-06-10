@@ -77,6 +77,26 @@ programs.niri = {
   package = linuxUnstablePkgs.niri;
 };
 
+programs.dconf.enable = true;
+
+xdg.portal = {
+  enable = true;
+  extraPortals = with pkgs; [
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
+  ];
+  config.niri = {
+    default = [
+      "gnome"
+      "gtk"
+    ];
+    "org.freedesktop.impl.portal.Access" = "gtk";
+    "org.freedesktop.impl.portal.FileChooser" = "gtk";
+    "org.freedesktop.impl.portal.Notification" = "gtk";
+    "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+  };
+};
+
 security.polkit.enable = true;
 security.pam.services.swaylock = { };
 services.gnome.gnome-keyring.enable = true;
@@ -94,6 +114,7 @@ environment.sessionVariables = {
   GDK_BACKEND = "wayland,x11";
   QT_QPA_PLATFORM = "wayland;xcb";
   ELECTRON_OZONE_PLATFORM_HINT = "auto";
+  XDG_CURRENT_DESKTOP = "niri";
 };
 
 system.stateVersion = "25.05"; 

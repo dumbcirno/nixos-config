@@ -9,6 +9,7 @@
     "QT_QPA_PLATFORM" = "wayland;xcb";
     "SDL_VIDEODRIVER" = "wayland";
     "XDG_SESSION_TYPE" = "wayland";
+    "XDG_CURRENT_DESKTOP" = "niri";
     "XCURSOR_SIZE" = "24";
   };
 }
