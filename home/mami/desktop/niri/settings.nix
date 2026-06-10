@@ -6,6 +6,10 @@ let
     inherit lib pkgs;
     waybarPackage = linuxUnstablePkgs.waybar;
   });
+  launchFootDelayed = lib.getExe (pkgs.writeShellScript "launch-foot-delayed" ''
+    ${pkgs.coreutils}/bin/sleep 2
+    exec ${lib.getExe pkgs.foot}
+  '');
   workspaceFocusBinds = lib.listToAttrs (
     map (x: {
       name = "Mod+${toString (lib.mod x 10)}";
@@ -60,6 +64,8 @@ in
       { argv = [ launchWaybar ]; }
       { argv = [ "elephant" ]; }
       { argv = [ "walker" "--gapplication-service" ]; }
+      { argv = [ "foot" ]; }
+      { argv = [ launchFootDelayed ]; }
     ];
 
     input = {
