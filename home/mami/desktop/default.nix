@@ -1,12 +1,8 @@
 { ... }:
 {
   imports = [
-    ./hyprland
-    ./hyprpaper
-    ./waybar
-    ./rofi
+    ./niri
+    ./noctalia
     ./gtk.nix
-    ./hypridle.nix
-    ./swaylock.nix
   ];
 }

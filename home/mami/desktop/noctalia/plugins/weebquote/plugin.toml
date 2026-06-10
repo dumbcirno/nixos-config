@@ -1,0 +1,12 @@
+id = "mami/weebquote"
+name = "Weebquote"
+version = "1.0.0"
+min_noctalia = "5.0.0"
+author = "mami"
+tags = ["bar", "fun"]
+icon = "sparkles"
+description = "Random anime and meta quotes for the status bar."
+
+[[widget]]
+id = "weebquote"
+entry = "weebquote.luau"
