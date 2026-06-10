@@ -58,7 +58,7 @@ in
       }
       { argv = [ "mako" ]; }
       { sh = "sleep 2; exec ${launchWaybar}"; }
-      { sh = "sleep 5; exec ${waybar}"; }
+      { sh = "sleep 5; exec ${lib.getExe pkgs.waybar}"; }
       { argv = [ "elephant" ]; }
       { argv = [ "walker" "--gapplication-service" ]; }
       { argv = [ "foot" ]; }
