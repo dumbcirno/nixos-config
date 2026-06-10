@@ -2,7 +2,7 @@
 let
   wallpaper = "${../../../../assets/wallpaper.png}";
   waybarExe = lib.getExe linuxUnstablePkgs.waybar;
-  exportPortalEnv = import ./portal-env-script.nix pkgs;
+  exportPortalEnv = lib.getExe (import ./portal-env-script.nix pkgs);
   workspaceFocusBinds = lib.listToAttrs (
     map (x: {
       name = "Mod+${toString (lib.mod x 10)}";
@@ -26,7 +26,7 @@ in
 
       spawn-at-startup = [
         { argv = [ exportPortalEnv ]; }
-        { argv = [ "swaybg" "-m" "fill" "-i" wallpaper ]; }
+        { argv = [ "swaybg" "-m" "fill" "-i" "${wallpaper}" ]; }
         { argv = [ waybarExe ]; }
         {
           argv = [
