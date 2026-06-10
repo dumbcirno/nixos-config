@@ -48,8 +48,12 @@ in
 
   systemd.user.services.noctalia = {
     Unit = {
-      After = lib.mkAfter [ "niri-portal-env.service" "niri.service" ];
-      PartOf = [ "niri.service" ];
+      PartOf = lib.mkForce [ "niri.service" ];
+      After = lib.mkForce [ "niri-portal-env.service" "niri.service" ];
+      Requires = [ "niri-portal-env.service" ];
+    };
+    Install = {
+      WantedBy = lib.mkForce [ "niri.service" ];
     };
     Service = {
       Restart = "on-failure";
