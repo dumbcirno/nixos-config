@@ -50,19 +50,28 @@
       nixosConfigurations.mami = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
-          inherit niri linuxUnstablePkgs;
+          inherit linuxUnstablePkgs;
         };
         modules = [
           ./system/mami/configuration.nix
           ./system/mami/hardware-configuration.nix
-          niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
+            # Only the HM config module — not nixosModules.niri, which adds niri.cachix.org.
+            home-manager.sharedModules = [
+              niri.homeModules.config
+              (
+                { lib, ... }:
+                {
+                  programs.niri.package = lib.mkForce linuxUnstablePkgs.niri;
+                }
+              )
+            ];
             home-manager.users.dumbcirno = {
               imports = [ ./home/mami/default.nix ];
             };
             home-manager.extraSpecialArgs = {
-              inherit nix-colors niri;
+              inherit nix-colors linuxUnstablePkgs;
             };
           }
         ];

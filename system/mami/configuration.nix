@@ -1,4 +1,4 @@
-{ linuxUnstablePkgs, pkgs, ... }:
+{ config, lib, linuxUnstablePkgs, pkgs, ... }:
 {
 boot.loader = {
   grub = {
@@ -71,15 +71,22 @@ fonts.packages = with pkgs; [
 
 programs.fish.enable = true;
 
-# niri.cachix.org is unreachable from Russia; use nixpkgs binaries instead.
-niri-flake.cache.enable = false;
-
 programs.niri = {
   enable = true;
-  # Use nixpkgs-unstable's pre-built niri (26.04 with blur) instead of
-  # niri-flake's niri-unstable, which fails to install on NixOS 25.05.
   package = linuxUnstablePkgs.niri;
 };
+
+security.polkit.enable = true;
+security.pam.services.swaylock = { };
+services.gnome.gnome-keyring.enable = true;
+
+# Strip niri.cachix.org if it was added by a previous generation or user nix.conf.
+nix.settings.substituters = lib.mkOverride 1000 (
+  lib.filter (s: s != "https://niri.cachix.org") config.nix.settings.substituters
+);
+nix.settings.trusted-public-keys = lib.mkOverride 1000 (
+  lib.filter (k: !lib.hasInfix "niri.cachix.org" k) config.nix.settings.trusted-public-keys
+);
 environment.sessionVariables = {
   NIXOS_OZONE_WL = "1";
   MOZ_ENABLE_WAYLAND = "1";
