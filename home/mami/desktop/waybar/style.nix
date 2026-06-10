@@ -11,6 +11,10 @@ let custom = {
 in 
 {
   programs.waybar.style = ''
+window#waybar {
+  background: transparent;
+}
+
 #waybar {
   background: ${custom.background};
   color: ${custom.fg};

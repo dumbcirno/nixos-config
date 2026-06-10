@@ -24,7 +24,9 @@ in
 
       spawn-at-startup = [
         { argv = [ "swaybg" "-m" "fill" "-i" wallpaper ]; }
-        { argv = [ "waybar" ]; }
+        {
+          sh = "systemctl --user reset-failed waybar.service 2>/dev/null; systemctl --user start waybar.service";
+        }
         {
           argv = [
             "swayidle"

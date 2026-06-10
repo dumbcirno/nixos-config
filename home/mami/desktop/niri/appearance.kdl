@@ -28,6 +28,7 @@ layer-rule {
 layer-rule {
     match namespace="^waybar$"
     match layer="top"
+    geometry-corner-radius 14
     background-effect {
         xray false
         blur true
