@@ -97,9 +97,9 @@
       workspaces = {
         display = "none";
         minimal = true;
-        focused_color = "#2AABEE";
-        occupied_color = "rgba(233, 238, 245, 0.62)";
-        empty_color = "rgba(233, 238, 245, 0.62)";
+        focused_color = "primary";
+        occupied_color = "on_surface_variant";
+        empty_color = "on_surface_variant";
       };
 
       weebquote = {
