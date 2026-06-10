@@ -99,7 +99,6 @@ xdg.portal = {
 };
 
 security.polkit.enable = true;
-security.pam.services.swaylock = { };
 services.gnome.gnome-keyring.enable = true;
 
 # Strip niri.cachix.org if it was added by a previous generation or user nix.conf.
@@ -109,6 +108,10 @@ nix.settings.substituters = lib.mkOverride 1000 (
 nix.settings.trusted-public-keys = lib.mkOverride 1000 (
   lib.filter (k: !lib.hasInfix "niri.cachix.org" k) config.nix.settings.trusted-public-keys
 );
+nix.settings.extra-substituters = lib.mkAfter [ "https://noctalia.cachix.org" ];
+nix.settings.extra-trusted-public-keys = lib.mkAfter [
+  "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+];
 environment.sessionVariables = {
   NIXOS_OZONE_WL = "1";
   MOZ_ENABLE_WAYLAND = "1";

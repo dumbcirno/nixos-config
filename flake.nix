@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
+    };
+
     nix-darwin = {
       url = "github:LnL7/nix-darwin/nix-darwin-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +41,7 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgsUnstable, home-manager, nix-colors, niri, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:
+  outputs = { nixpkgs, nixpkgsUnstable, home-manager, nix-colors, niri, noctalia, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -60,6 +65,7 @@
             # Only the HM config module — not nixosModules.niri, which adds niri.cachix.org.
             home-manager.sharedModules = [
               niri.homeModules.config
+              noctalia.homeModules.default
               (
                 { lib, ... }:
                 {
@@ -71,7 +77,7 @@
               imports = [ ./home/mami/default.nix ];
             };
             home-manager.extraSpecialArgs = {
-              inherit nix-colors linuxUnstablePkgs;
+              inherit nix-colors linuxUnstablePkgs inputs;
             };
           }
         ];

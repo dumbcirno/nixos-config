@@ -1,6 +1,5 @@
 { lib, linuxUnstablePkgs, pkgs, ... }:
 let
-  wallpaper = "${../../../../assets/wallpaper.png}";
   exportPortalEnv = import ./portal-env-script.nix pkgs;
   workspaceFocusBinds = lib.listToAttrs (
     map (x: {
@@ -25,31 +24,6 @@ in
 
       spawn-at-startup = [
         { argv = [ exportPortalEnv ]; }
-        { argv = [ "swaybg" "-m" "fill" "-i" "${wallpaper}" ]; }
-        {
-          argv = [
-            "swayidle"
-            "-w"
-            "timeout"
-            "300"
-            "swaylock"
-            "-f"
-            "timeout"
-            "600"
-            "niri"
-            "msg"
-            "action"
-            "power-off-monitors"
-            "resume"
-            "niri"
-            "msg"
-            "action"
-            "power-on-monitors"
-            "before-sleep"
-            "swaylock"
-            "-f"
-          ];
-        }
       ];
 
       input = {
@@ -87,7 +61,7 @@ in
           "Mod+E".action.spawn = "dolphin";
           "Mod+V".action.toggle-window-floating = [ ];
           "Mod+F".action.fullscreen-window = [ ];
-          "Mod+D".action.spawn = [ "rofi" "-show" "drun" ];
+          "Mod+D".action.spawn = [ "noctalia" "msg" "launcher" "toggle" ];
           "Mod+J".action.toggle-column-tabbed-display = [ ];
           "Mod+Left".action.focus-column-left = [ ];
           "Mod+Right".action.focus-column-right = [ ];

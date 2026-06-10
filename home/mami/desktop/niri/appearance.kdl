@@ -15,7 +15,7 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^rofi$"
+    match namespace="^noctalia"
     geometry-corner-radius 14
     background-effect {
         xray false

@@ -10,7 +10,7 @@ in
       PartOf = [ "niri.service" ];
       Before = [
         "xdg-desktop-autostart.target"
-        "waybar.service"
+        "noctalia.service"
       ];
     };
     Service = {

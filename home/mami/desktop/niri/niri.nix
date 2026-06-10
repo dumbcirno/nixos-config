@@ -6,6 +6,5 @@
     brightnessctl
     grimblast
     kdePackages.dolphin
-    swaybg
   ]);
 }

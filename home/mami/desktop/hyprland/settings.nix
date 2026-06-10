@@ -4,7 +4,6 @@
     monitor = ",preferred,auto,1";
     exec-once = [
       "hyprpaper"
-      "waybar"
     ];
     "$mod" = "SUPER";
     bind = [

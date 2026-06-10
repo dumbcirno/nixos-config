@@ -2,10 +2,7 @@
 {
   imports = [
     ./niri
-    ./waybar
-    ./rofi
+    ./noctalia
     ./gtk.nix
-    ./swayidle.nix
-    ./swaylock.nix
   ];
 }
