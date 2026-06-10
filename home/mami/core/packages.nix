@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    xwayland-satellite
     firefox
     neovim
     wl-clipboard

@@ -1,7 +1,14 @@
 { ... }:
 {
   home.sessionVariables = {
-    "NIXOS_OZONE_WL" = 1;
-    "XCURSOR_SIZE" = 24;
+    # Wayland-first; X11 apps fall back via niri + xwayland-satellite
+    "NIXOS_OZONE_WL" = "1";
+    "ELECTRON_OZONE_PLATFORM_HINT" = "auto";
+    "MOZ_ENABLE_WAYLAND" = "1";
+    "GDK_BACKEND" = "wayland,x11";
+    "QT_QPA_PLATFORM" = "wayland;xcb";
+    "SDL_VIDEODRIVER" = "wayland";
+    "XDG_SESSION_TYPE" = "wayland";
+    "XCURSOR_SIZE" = "24";
   };
 }

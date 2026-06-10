@@ -55,11 +55,12 @@ home-manager.users.dumbcirno = {
 home-manager.backupFileExtension = "hm-bak";
 
  environment.systemPackages = with pkgs; [
-   vim 
+   vim
    wget
    sudo
    pipewire
-];
+   xwayland-satellite
+ ];
 
 fonts.packages = with pkgs; [
    jetbrains-mono
@@ -75,7 +76,13 @@ programs.niri = {
   # niri-flake's niri-unstable, which fails to install on NixOS 25.05.
   package = linuxUnstablePkgs.niri;
 };
-environment.sessionVariables.NIXOS_OZONE_WL = "1";
+environment.sessionVariables = {
+  NIXOS_OZONE_WL = "1";
+  MOZ_ENABLE_WAYLAND = "1";
+  GDK_BACKEND = "wayland,x11";
+  QT_QPA_PLATFORM = "wayland;xcb";
+  ELECTRON_OZONE_PLATFORM_HINT = "auto";
+};
 
 system.stateVersion = "25.05"; 
 

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 let
   wallpaper = "${../../../../assets/wallpaper.png}";
   workspaceFocusBinds = lib.listToAttrs (
@@ -20,6 +20,8 @@ let
 in
 {
   programs.niri.settings = {
+      xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
+
       spawn-at-startup = [
         { argv = [ "swaybg" "-m" "fill" "-i" wallpaper ]; }
         { argv = [ "waybar" ]; }
