@@ -1,5 +1,6 @@
 { lib, linuxUnstablePkgs, pkgs, noctalia, ... }:
 let
+  noctaliaExe = lib.getExe noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
   exportPortalEnv = import ./portal-env-script.nix pkgs;
   launchNoctalia = import ../noctalia/launch-noctalia.nix { inherit lib pkgs noctalia; };
   workspaceFocusBinds = lib.listToAttrs (
@@ -63,7 +64,7 @@ in
           "Mod+E".action.spawn = "dolphin";
           "Mod+V".action.toggle-window-floating = [ ];
           "Mod+F".action.fullscreen-window = [ ];
-          "Mod+D".action.spawn = [ "noctalia" "msg" "launcher" "toggle" ];
+          "Mod+D".action.spawn-sh = "${noctaliaExe} msg panel-toggle launcher";
           "Mod+J".action.toggle-column-tabbed-display = [ ];
           "Mod+Left".action.focus-column-left = [ ];
           "Mod+Right".action.focus-column-right = [ ];
