@@ -77,7 +77,7 @@
               imports = [ ./home/mami/default.nix ];
             };
             home-manager.extraSpecialArgs = {
-              inherit nix-colors linuxUnstablePkgs inputs;
+              inherit nix-colors linuxUnstablePkgs noctalia;
             };
           }
         ];
