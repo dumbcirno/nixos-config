@@ -1,4 +1,4 @@
-{ niri, pkgs, ... }:
+{ linuxUnstablePkgs, pkgs, ... }:
 {
 boot.loader = {
   grub = {
@@ -71,7 +71,9 @@ fonts.packages = with pkgs; [
 programs.fish.enable = true;
 programs.niri = {
   enable = true;
-  package = niri.packages.${pkgs.system}.niri-unstable;
+  # Use nixpkgs-unstable's pre-built niri (26.04 with blur) instead of
+  # niri-flake's niri-unstable, which fails to install on NixOS 25.05.
+  package = linuxUnstablePkgs.niri;
 };
 environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

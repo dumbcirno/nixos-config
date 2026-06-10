@@ -42,10 +42,16 @@
       pkgs = nixpkgs.legacyPackages.${system};
       unstablePkgs = import nixpkgsUnstable { system = system; config.allowUnfree = true; };
 
+      linuxUnstablePkgs = import nixpkgsUnstable {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
     in {
       nixosConfigurations.mami = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit niri; };
+        specialArgs = {
+          inherit niri linuxUnstablePkgs;
+        };
         modules = [
           ./system/mami/configuration.nix
           ./system/mami/hardware-configuration.nix
