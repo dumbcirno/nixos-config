@@ -57,7 +57,7 @@ in
         ];
       }
       { argv = [ "mako" ]; }
-      { argv = [ launchWaybar ]; }
+      { argv = [ "waybar" ]; }
       { argv = [ "elephant" ]; }
       { argv = [ "walker" "--gapplication-service" ]; }
     ];
