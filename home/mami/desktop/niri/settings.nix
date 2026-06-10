@@ -19,10 +19,7 @@ let
   );
 in
 {
-  programs.niri = {
-    enable = true;
-
-    settings = {
+  programs.niri.settings = {
       spawn-at-startup = [
         { argv = [ "swaybg" "-m" "fill" "-i" wallpaper ]; }
         { argv = [ "waybar" ]; }
@@ -141,6 +138,5 @@ in
         }
         // workspaceFocusBinds
         // workspaceMoveBinds;
-    };
   };
 }
