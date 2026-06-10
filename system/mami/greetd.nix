@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   services.greetd = {
     enable = true;
@@ -14,7 +14,4 @@
     extraGroups = [ "video" ];
   };
   users.groups.greeter = { };
-
-  # Let niri-session inherit the full user PATH from home-manager.
-  systemd.user.services.niri.enableDefaultPath = lib.mkDefault false;
 }
