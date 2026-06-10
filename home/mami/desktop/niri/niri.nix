@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ linuxUnstablePkgs, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    xwayland-satellite
+  home.packages = [
+    linuxUnstablePkgs.xwayland-satellite
+  ] ++ (with pkgs; [
     brightnessctl
     grimblast
     kdePackages.dolphin
     swaybg
-  ];
+  ]);
 }

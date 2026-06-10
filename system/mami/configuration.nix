@@ -59,7 +59,8 @@ home-manager.backupFileExtension = "hm-bak";
    wget
    sudo
    pipewire
-   xwayland-satellite
+   linuxUnstablePkgs.xwayland-satellite
+   linuxUnstablePkgs.xwayland
  ];
 
 fonts.packages = with pkgs; [

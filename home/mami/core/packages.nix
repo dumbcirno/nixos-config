@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ linuxUnstablePkgs, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    xwayland-satellite
+  home.packages = [
+    linuxUnstablePkgs.xwayland-satellite
+  ] ++ (with pkgs; [
     firefox
     neovim
     wl-clipboard
@@ -26,7 +27,7 @@
     amnezia-vpn
 
     gajim
-  ];
+  ]);
 
   programs.nix-index.enable = true;
   nixpkgs.config.allowUnfree = true;
