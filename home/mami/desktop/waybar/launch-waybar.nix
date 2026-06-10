@@ -29,5 +29,7 @@ pkgs.writeShellScript "launch-waybar" ''
     exit 1
   fi
 
+  ${pkgs.coreutils}/bin/sleep 2
+
   exec ${lib.getExe waybarPackage}
 ''
