@@ -16,6 +16,7 @@ window#waybar {
 }
 
 #waybar {
+  min-height: 32px;
   background: ${custom.background};
   color: ${custom.fg};
   font-family: ${custom.font};
@@ -27,8 +28,9 @@ window#waybar {
 #network,
 #backlight,
 #pulseaudio,
-#wireplumber.output,
-#wireplumber.input,
+#wireplumber-output,
+#wireplumber-input,
+#pulseaudio-input,
 #language,
 #clock,
 #language,

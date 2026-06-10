@@ -3,6 +3,7 @@
   programs.waybar.settings.mainBar = {
     layer = "top";
     position = "top";
+    height = 32;
     spacing = 8;
 
     modules-left = [
@@ -32,7 +33,8 @@
   };
 
   "niri/workspaces" = {
-    "format" = "●";
+    format = "●";
+    all-outputs = true;
   };
 
   battery = {
