@@ -1,6 +1,8 @@
-{ lib, linuxUnstablePkgs, ... }:
+{ lib, linuxUnstablePkgs, pkgs, ... }:
 let
   wallpaper = "${../../../../assets/wallpaper.png}";
+  waybarExe = lib.getExe linuxUnstablePkgs.waybar;
+  exportPortalEnv = import ./portal-env-script.nix pkgs;
   workspaceFocusBinds = lib.listToAttrs (
     map (x: {
       name = "Mod+${toString (lib.mod x 10)}";
@@ -23,21 +25,9 @@ in
       xwayland-satellite.path = lib.getExe linuxUnstablePkgs.xwayland-satellite;
 
       spawn-at-startup = [
-        {
-          sh = ''
-            systemctl --user import-environment \
-              WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE \
-              GDK_BACKEND QT_QPA_PLATFORM MOZ_ENABLE_WAYLAND NIXOS_OZONE_WL
-            dbus-update-activation-environment --systemd \
-              WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE \
-              GDK_BACKEND QT_QPA_PLATFORM MOZ_ENABLE_WAYLAND NIXOS_OZONE_WL
-            systemctl --user restart xdg-desktop-portal.service 2>/dev/null || true
-          '';
-        }
+        { argv = [ exportPortalEnv ]; }
         { argv = [ "swaybg" "-m" "fill" "-i" wallpaper ]; }
-        {
-          sh = "systemctl --user reset-failed waybar.service 2>/dev/null; systemctl --user start waybar.service";
-        }
+        { argv = [ waybarExe ]; }
         {
           argv = [
             "swayidle"

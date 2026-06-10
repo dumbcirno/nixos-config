@@ -80,11 +80,12 @@ programs.niri = {
 programs.dconf.enable = true;
 
 xdg.portal = {
-  enable = true;
-  extraPortals = with pkgs; [
+  enable = lib.mkForce true;
+  extraPortals = lib.mkForce (with pkgs; [
     xdg-desktop-portal-gnome
     xdg-desktop-portal-gtk
-  ];
+  ]);
+  configPackages = lib.mkForce [ linuxUnstablePkgs.niri ];
   config.niri = {
     default = [
       "gnome"
@@ -111,7 +112,6 @@ nix.settings.trusted-public-keys = lib.mkOverride 1000 (
 environment.sessionVariables = {
   NIXOS_OZONE_WL = "1";
   MOZ_ENABLE_WAYLAND = "1";
-  GDK_BACKEND = "wayland,x11";
   QT_QPA_PLATFORM = "wayland;xcb";
   ELECTRON_OZONE_PLATFORM_HINT = "auto";
   XDG_CURRENT_DESKTOP = "niri";

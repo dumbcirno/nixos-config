@@ -2,6 +2,7 @@
 {
   imports = [
     ./niri.nix
+    ./portal-env.nix
     ./settings.nix
   ];
 
