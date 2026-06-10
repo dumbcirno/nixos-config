@@ -70,6 +70,10 @@ fonts.packages = with pkgs; [
 ];
 
 programs.fish.enable = true;
+
+# niri.cachix.org is unreachable from Russia; use nixpkgs binaries instead.
+niri-flake.cache.enable = false;
+
 programs.niri = {
   enable = true;
   # Use nixpkgs-unstable's pre-built niri (26.04 with blur) instead of
