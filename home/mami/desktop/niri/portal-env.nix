@@ -1,6 +1,6 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 let
-  exportPortalEnv = lib.getExe (import ./portal-env-script.nix pkgs);
+  exportPortalEnv = import ./portal-env-script.nix pkgs;
 in
 {
   systemd.user.services.niri-portal-env = {

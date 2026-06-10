@@ -1,7 +1,7 @@
 { lib, linuxUnstablePkgs, pkgs, ... }:
 let
   wallpaper = "${../../../../assets/wallpaper.png}";
-  exportPortalEnv = lib.getExe (import ./portal-env-script.nix pkgs);
+  exportPortalEnv = import ./portal-env-script.nix pkgs;
   workspaceFocusBinds = lib.listToAttrs (
     map (x: {
       name = "Mod+${toString (lib.mod x 10)}";

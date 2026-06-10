@@ -18,8 +18,8 @@ in
   systemd.user.services.waybar = {
     Unit.After = [ "niri-portal-env.service" "niri.service" ];
     Service = {
-      ExecStart = lib.mkForce (lib.getExe launchWaybar);
-      Environment = "GTK_USE_PORTAL=0 GDK_BACKEND=wayland XDG_CURRENT_DESKTOP=niri";
+      ExecStart = lib.mkForce launchWaybar;
+      Environment = lib.mkForce "GTK_USE_PORTAL=0 GDK_BACKEND=wayland XDG_CURRENT_DESKTOP=niri";
       Restart = "on-failure";
       RestartSec = 2;
       StartLimitBurst = 15;
