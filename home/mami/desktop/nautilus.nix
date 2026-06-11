@@ -28,10 +28,7 @@ in
     };
   };
 
-  gtk.gtk4 = {
-    theme = null;
-
-    extraCss = ''
+  gtk.gtk4.extraCss = ''
       :root {
         --window-bg-color: ${glass.bg};
         --window-fg-color: ${glass.fg};
@@ -150,7 +147,6 @@ in
         background-color: ${glass.buttonHover};
       }
     '';
-  };
 
   xdg.configFile."gtk-4.0/.libadwaita".text = "";
 }

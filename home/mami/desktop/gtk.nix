@@ -9,7 +9,9 @@ home.pointerCursor = {
 
 gtk = {
   enable = true;
-  colorScheme = "dark";
+  gtk3.extraConfig = {
+    gtk-application-prefer-dark-theme = true;
+  };
   theme = {
     package = pkgs.nordic;
     name = "Nordic";
