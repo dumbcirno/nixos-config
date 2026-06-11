@@ -2,10 +2,7 @@
 let
   wallpaper = "${../../../../assets/wallpaper.png}";
   exportPortalEnv = import ./portal-env-script.nix pkgs;
-  launchWaybar = lib.getExe (import ../waybar/launch-waybar.nix {
-    inherit lib pkgs;
-    waybarPackage = linuxUnstablePkgs.waybar;
-  });
+  launchWaybar = lib.getExe pkgs.waybar;
   workspaceFocusBinds = lib.listToAttrs (
     map (x: {
       name = "Mod+${toString (lib.mod x 10)}";
