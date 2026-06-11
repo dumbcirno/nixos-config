@@ -3,7 +3,10 @@ let
   custom = {
     font = "Jetbrains Mono";
     font_size = "16px";
-    background = "rgba(0, 0, 0, 0.55)";
+    glass_bg = "rgba(255, 255, 255, 0.10)";
+    glass_border = "rgba(255, 255, 255, 0.18)";
+    glass_border_top = "rgba(255, 255, 255, 0.28)";
+    glass_shadow = "rgba(0, 0, 0, 0.25)";
     fg = "rgba(233, 238, 245, 0.88)";
     fg_dim = "rgba(233, 238, 245, 0.62)";
     accent = "#000000";
@@ -13,6 +16,14 @@ let
       partial-primary = "2px";
     };
   };
+
+  glassPill = ''
+    background: ${custom.glass_bg};
+    border: 1px solid ${custom.glass_border};
+    border-top-color: ${custom.glass_border_top};
+    border-radius: 14px;
+    box-shadow: 0 2px 8px ${custom.glass_shadow};
+  '';
 in
 {
   programs.waybar.style = ''
@@ -22,7 +33,7 @@ in
 
     #waybar {
       min-height: 32px;
-      background: ${custom.background};
+      background: transparent;
       color: ${custom.fg};
       font-family: ${custom.font};
       font-size: ${custom.font_size};
@@ -38,7 +49,6 @@ in
     #pulseaudio-input,
     #language,
     #clock,
-    #language,
     #battery {
       padding: 6px 10px;
     }
@@ -52,10 +62,9 @@ in
     #battery,
     #clock {
       margin: ${custom.margins.primary} ${custom.margins.primary} ${custom.margins.partial-primary} ${custom.margins.primary};
-      background: ${custom.background};
       padding-left: 10px;
       padding-right: 10px;
-      border-radius: 14px;
+      ${glassPill}
     }
 
     #workspaces button {

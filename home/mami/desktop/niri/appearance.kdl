@@ -34,6 +34,26 @@ layer-rule {
 }
 
 layer-rule {
+    match namespace="^waybar$"
+    geometry-corner-radius 14
+    place-within-backdrop true
+
+    background-effect {
+        xray false
+        blur true
+        noise 0.01
+        saturation 1.2
+    }
+
+    popups {
+        geometry-corner-radius 6
+        background-effect {
+            blur true
+        }
+    }
+}
+
+layer-rule {
     match layer="top"
     match layer="overlay"
     background-effect {
