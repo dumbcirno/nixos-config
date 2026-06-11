@@ -11,10 +11,6 @@ let
     fg_dim = "rgba(233, 238, 245, 0.62)";
     accent = "#000000";
     danger = "#FF3B30";
-    margins = {
-      primary = "4px";
-      partial-primary = "2px";
-    };
   };
 
   glassPill = ''
@@ -31,12 +27,15 @@ in
       background: transparent;
     }
 
-    #waybar {
+    window#waybar.left-pill #waybar,
+    window#waybar.center-pill #waybar,
+    window#waybar.right-pill #waybar {
       min-height: 32px;
-      background: transparent;
       color: ${custom.fg};
       font-family: ${custom.font};
       font-size: ${custom.font_size};
+      padding: 0 10px;
+      ${glassPill}
     }
 
     #workspaces,
@@ -50,21 +49,10 @@ in
     #language,
     #clock,
     #battery {
-      padding: 6px 10px;
-    }
-
-    #workspaces,
-    #language,
-    #network,
-    #backlight,
-    #wireplumber,
-    #pulseaudio,
-    #battery,
-    #clock {
-      margin: ${custom.margins.primary} ${custom.margins.primary} ${custom.margins.partial-primary} ${custom.margins.primary};
-      padding-left: 10px;
-      padding-right: 10px;
-      ${glassPill}
+      padding: 6px 4px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
 
     #workspaces button {
