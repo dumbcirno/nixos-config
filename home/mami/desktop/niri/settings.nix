@@ -3,6 +3,7 @@ let
   wallpaper = "${../../../../assets/wallpaper.png}";
   exportPortalEnv = import ./portal-env-script.nix pkgs;
   launchWaybar = lib.getExe pkgs.waybar;
+  toggleWaybar = lib.getExe (import ../waybar/toggle-waybar.nix { inherit pkgs; });
   workspaceFocusBinds = lib.listToAttrs (
     map (x: {
       name = "Mod+${toString (lib.mod x 10)}";
@@ -103,12 +104,7 @@ in
         "Mod+Up".action.focus-window-up = [ ];
         "Mod+Down".action.focus-window-down = [ ];
         "Mod+S".action.toggle-overview = [ ];
-        "Mod+P".action.spawn = [
-          "pkill"
-          "-SIGUSR1"
-          "-x"
-          "waybar"
-        ];
+        "Mod+P".action.spawn = toggleWaybar;
         "Mod+WheelScrollDown" = {
           cooldown-ms = 150;
           action.focus-workspace-down = [ ];
