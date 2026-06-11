@@ -5,7 +5,6 @@
     xdg-desktop-portal-hyprland
     brightnessctl
     grimblast
-    nautilus
  ];
 
  wayland.windowManager.hyprland.enable = true;

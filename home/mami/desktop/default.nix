@@ -8,5 +8,6 @@
     ./mako.nix
     ./walker
     ./gtk.nix
+    ./nautilus.nix
   ];
 }
