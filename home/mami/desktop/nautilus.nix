@@ -2,18 +2,17 @@
 let
   glass = {
     fg = "#e9eef5";
-    bg = "rgba(0, 0, 0, 0.58)";
-    pane = "rgba(0, 0, 0, 0.45)";
-    sidebar = "rgba(0, 0, 0, 0.35)";
-    selection = "rgba(13, 20, 29, 0.70)";
+    bg = "#000000";
+    pane = "#000000";
+    sidebar = "#0b0f14";
+    elevated = "#0d141d";
     border = "rgba(255, 255, 255, 0.12)";
-    borderTop = "rgba(255, 255, 255, 0.18)";
     hover = "rgba(255, 255, 255, 0.06)";
     button = "rgba(255, 255, 255, 0.08)";
     buttonHover = "rgba(255, 255, 255, 0.14)";
-    accent = "rgba(42, 171, 238, 0.35)";
-    popover = "rgba(13, 20, 29, 0.95)";
-    scrollbar = "rgba(255, 255, 255, 0.18)";
+    accent = "#2aabee";
+    accentFg = "#000000";
+    selection = "#0d141d";
   };
 in
 {
@@ -29,21 +28,35 @@ in
     };
   };
 
-  xdg.configFile = {
-    "gtk-4.0/settings.ini".text = ''
-      [AdwStyleManager]
-      color-scheme=prefer-dark
-    '';
+  gtk.gtk4 = {
+    theme = null;
 
-    "gtk-4.0/gtk.css".text = ''
+    extraCss = ''
       :root {
         --window-bg-color: ${glass.bg};
         --window-fg-color: ${glass.fg};
-        --sidebar-bg-color: ${glass.sidebar};
-        --sidebar-border-color: ${glass.border};
         --view-bg-color: ${glass.pane};
-        --accent-bg-color: #2aabee;
-        --accent-fg-color: #000000;
+        --view-fg-color: ${glass.fg};
+        --headerbar-bg-color: ${glass.bg};
+        --headerbar-fg-color: ${glass.fg};
+        --headerbar-backdrop-color: ${glass.bg};
+        --headerbar-border-color: ${glass.border};
+        --sidebar-bg-color: ${glass.sidebar};
+        --sidebar-fg-color: ${glass.fg};
+        --sidebar-backdrop-color: ${glass.sidebar};
+        --sidebar-border-color: ${glass.border};
+        --secondary-sidebar-bg-color: ${glass.sidebar};
+        --secondary-sidebar-backdrop-color: ${glass.sidebar};
+        --accent-bg-color: ${glass.accent};
+        --accent-fg-color: ${glass.accentFg};
+        --popover-bg-color: ${glass.elevated};
+        --popover-fg-color: ${glass.fg};
+        --card-bg-color: ${glass.sidebar};
+        --card-fg-color: ${glass.fg};
+        --dialog-bg-color: ${glass.elevated};
+        --dialog-fg-color: ${glass.fg};
+        --active-toggle-bg-color: ${glass.buttonHover};
+        --active-toggle-fg-color: ${glass.fg};
       }
 
       window {
@@ -51,8 +64,22 @@ in
         color: ${glass.fg};
       }
 
+      headerbar,
+      .titlebar {
+        background-color: ${glass.bg};
+        color: ${glass.fg};
+        border-bottom: 1px solid ${glass.border};
+        box-shadow: none;
+      }
+
+      headerbar:backdrop,
+      .titlebar:backdrop {
+        background-color: ${glass.bg};
+        color: ${glass.fg};
+      }
+
       .nautilus-window {
-        background-color: transparent;
+        background-color: ${glass.bg};
       }
 
       .nautilus-window .content-pane,
@@ -60,21 +87,24 @@ in
         background-color: ${glass.pane};
       }
 
-      .nautilus-window headerbar {
+      .nautilus-window .sidebar-pane {
+        background-color: ${glass.sidebar};
+        border-right: 1px solid ${glass.border};
+      }
+
+      .nautilus-window:backdrop .content-pane,
+      .nautilus-window:backdrop .sidebar-pane {
         background-color: ${glass.pane};
-        border-bottom: 1px solid ${glass.border};
-        box-shadow: none;
+      }
+
+      .nautilus-window:backdrop .sidebar-pane {
+        background-color: ${glass.sidebar};
       }
 
       .nautilus-window .nautilus-list-view,
       .nautilus-window .nautilus-grid-view {
-        background-color: transparent;
+        background-color: ${glass.pane};
         color: ${glass.fg};
-      }
-
-      .nautilus-window .sidebar {
-        background-color: ${glass.sidebar};
-        border-right: 1px solid ${glass.border};
       }
 
       .nautilus-window row:selected {
@@ -84,10 +114,6 @@ in
 
       .nautilus-window row:hover:not(:selected) {
         background-color: ${glass.hover};
-      }
-
-      .nautilus-window .sidebar row:selected {
-        background-color: ${glass.selection};
       }
 
       .nautilus-window button {
@@ -103,7 +129,7 @@ in
       .nautilus-window button:checked,
       .nautilus-window button.suggested-action {
         background-color: ${glass.accent};
-        color: ${glass.fg};
+        color: ${glass.accentFg};
       }
 
       .nautilus-window entry {
@@ -115,15 +141,16 @@ in
       popover,
       popover contents,
       popover.background {
-        background-color: ${glass.popover};
+        background-color: ${glass.elevated};
         color: ${glass.fg};
         border: 1px solid ${glass.border};
-        opacity: 1;
       }
 
       scrollbar slider {
-        background-color: ${glass.scrollbar};
+        background-color: ${glass.buttonHover};
       }
     '';
   };
+
+  xdg.configFile."gtk-4.0/.libadwaita".text = "";
 }

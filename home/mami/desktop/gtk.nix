@@ -9,6 +9,7 @@ home.pointerCursor = {
 
 gtk = {
   enable = true;
+  colorScheme = "dark";
   theme = {
     package = pkgs.nordic;
     name = "Nordic";
