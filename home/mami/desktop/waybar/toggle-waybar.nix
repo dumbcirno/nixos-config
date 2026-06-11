@@ -1,4 +1,11 @@
-{ pkgs }:
+{ pkgs, launchWaybar }:
 pkgs.writeShellScript "toggle-waybar" ''
-  ${pkgs.procps}/bin/pkill -USR1 -x waybar 2>/dev/null || true
+  set -eu
+
+  if ${pkgs.procps}/bin/pgrep -x waybar >/dev/null 2>&1; then
+    ${pkgs.procps}/bin/pkill -x waybar || true
+    exit 0
+  fi
+
+  ${launchWaybar} &
 ''
