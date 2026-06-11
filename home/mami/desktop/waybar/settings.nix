@@ -11,7 +11,6 @@
     ];
 
     modules-center = [
-      "custom/weebquote"
       "clock"
     ];
 
@@ -23,14 +22,6 @@
       "pulseaudio#input"
       "battery"
     ];
-
-    "custom/weebquote" = {
-      exec = "~/.config/waybar/scripts/weebquote";
-      interval = 60;
-      return-type = "json";
-      max-length = 42;
-      on-click = "~/.config/waybar/scripts/weebquote --force";
-    };
 
     "niri/workspaces" = {
       format = "●";
@@ -52,7 +43,7 @@
 
     "pulseaudio#input" = {
       format = "{format_source}";
-      format-source = "<span color='#2AABEE'>󰍬 on</span>";
+      format-source = "󰍬 on";
       format-source-muted = "󰍭 off";
 
       on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";

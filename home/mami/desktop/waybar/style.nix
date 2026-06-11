@@ -6,8 +6,12 @@ let
     background = "rgba(0, 0, 0, 0.55)";
     fg = "rgba(233, 238, 245, 0.88)";
     fg_dim = "rgba(233, 238, 245, 0.62)";
-    accent = "#2AABEE";
+    accent = "#000000";
     danger = "#FF3B30";
+    margins = {
+      primary = "4px";
+      partial-primary = "2px";
+    };
   };
 in
 {
@@ -38,29 +42,26 @@ in
     #battery {
       padding: 6px 10px;
     }
-    #workspaces {
-      padding-left: 20px;
-    }
 
-    #battery {
-      margin-right: 20px;
-    }
-
-    #custom-weebquote {
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.20);
-      color: ${custom.fg};
-    }
-
-    #custom-weebquote:hover {
-      background: rgba(0, 0, 0, 0.30);
+    #workspaces,
+    #language,
+    #network,
+    #backlight,
+    #wireplumber,
+    #pulseaudio,
+    #battery,
+    #clock {
+      margin: ${custom.margins.primary} ${custom.margins.primary} ${custom.margins.partial-primary} ${custom.margins.primary};
+      background: ${custom.background};
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 14px;
     }
 
     #workspaces button {
       font-size: ${custom.font_size};
       padding: 0 1px;
-      color: ${custom.fg_dim};
+      color: ${custom.fg};
       border: none;
     }
 

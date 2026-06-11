@@ -6,6 +6,14 @@ blur {
     saturation 1.2
 }
 
+layout {
+    border {
+        width 4
+        active-color "#000000"
+        inactive-color "#ffffff"
+    }
+}
+
 prefer-no-csd
 
 window-rule {
