@@ -19,18 +19,18 @@
 
      regular0 = "0B0F14";
      regular1 = "FF3B30";
-     regular2 = "34C759";
+     regular2 = "2AABEE";
      regular3 = "FFCC00";
-     regular4 = "2AABEE";
+     regular4 = "34C759";
      regular5 = "AF52DE";
-     regular6 = "32D7FF";
+     regular6 = "34C759";
      regular7 = "E9EEF5";
 
      bright0 = "6B7280";
      bright1 = "FF453A";
-     bright2 = "30D158";
+     bright2 = "64D2FF";
      bright3 = "FFD60A";
-     bright4 = "64D2FF";
+     bright4 = "30D158";
      bright5 = "BF5AF2";
      bright6 = "66D4FF";
      bright7 = "F5F7FA";
