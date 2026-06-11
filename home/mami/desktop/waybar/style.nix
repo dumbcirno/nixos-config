@@ -6,7 +6,7 @@ let
     glass_bg = "rgba(255, 255, 255, 0.10)";
     glass_border = "rgba(255, 255, 255, 0.18)";
     glass_border_top = "rgba(255, 255, 255, 0.28)";
-    glass_shadow = "rgba(0, 0, 0, 0.25)";
+    glass_shadow = "rgba(0, 0, 0, 0)";
     fg = "rgba(233, 238, 245, 0.88)";
     fg_dim = "rgba(233, 238, 245, 0.62)";
     accent = "#000000";
