@@ -5,7 +5,7 @@
     xdg-desktop-portal-hyprland
     brightnessctl
     grimblast
-    kdePackages.dolphin
+    nautilus
  ];
 
  wayland.windowManager.hyprland.enable = true;

@@ -10,7 +10,7 @@
       "$mod, RETURN, exec, foot"
       "$mod, Q, killactive, "
       "$mod, M, exit, "
-      "$mod, E, exec, dolphin"
+      "$mod, E, exec, nautilus"
       "$mod, V, togglefloating, "
       "$mod, F, fullscreen, "
       "$mod, D, exec, rofi -show drun"

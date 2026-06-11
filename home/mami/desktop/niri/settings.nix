@@ -99,7 +99,7 @@ in
         "Mod+M".action.quit = {
           skip-confirmation = true;
         };
-        "Mod+E".action.spawn = "dolphin";
+        "Mod+E".action.spawn = "nautilus";
         "Mod+V".action.toggle-window-floating = [ ];
         "Mod+F".action.fullscreen-window = [ ];
         "Mod+D".action.spawn = [ "walker" ];

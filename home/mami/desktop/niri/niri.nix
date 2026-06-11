@@ -4,7 +4,7 @@
     linuxUnstablePkgs.xwayland-satellite
   ] ++ (with pkgs; [
     brightnessctl
-    kdePackages.dolphin
+    nautilus
     swaybg
     swayidle
     mako
