@@ -27,7 +27,7 @@
         {
           type = "custom";
           format = "┌────────────────────── Hardware ──────────────────────┐";
-          outputColor = "red";
+          outputColor = "green";
         }
         {
           type = "title";
@@ -54,13 +54,13 @@
         {
           type = "custom";
           format = "└──────────────────────────────────────────────────────┘";
-          outputColor = "red";
+          outputColor = "green";
         }
         "break"
         {
           type = "custom";
           format = "┌────────────────────── Software ──────────────────────┐";
-          outputColor = "red";
+          outputColor = "green";
         }
         {
           type = "os";
@@ -123,7 +123,7 @@
         {
           type = "custom";
           format = "└────────────────────────────────────────────────────┘";
-          outputColor = "red";
+          outputColor = "green";
         }
         "break"
       ];
