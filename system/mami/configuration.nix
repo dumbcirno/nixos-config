@@ -29,6 +29,7 @@ networking.hostName = "mami";
 time.timeZone = "Europe/Moscow";
 
 networking.networkmanager.enable = true;
+networking.firewall.enable = false;
 
 security.rtkit.enable = true;
 services.pipewire = {
@@ -116,7 +117,7 @@ environment.sessionVariables = {
   XDG_CURRENT_DESKTOP = "niri";
 };
 
-system.stateVersion = "25.05"; 
+system.stateVersion = "25.11"; 
 
 nixpkgs.config.allowUnfree = true;
 
