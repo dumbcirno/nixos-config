@@ -20,11 +20,8 @@
     python3
     gcc
     dotnet-sdk_8
-    dotnet-runtime_8
 
     hysteria
-
-    amnezia-vpn
 
     gajim
   ]);
