@@ -9,9 +9,6 @@
    main = {
      font = "JetBrains Mono:size=13";
    };
-   cursor = {
-     color = "2AABEE 000000";
-   };
    colors = {
      alpha = 0.7;
      foreground = "E9EEF5";
@@ -35,6 +32,7 @@
      bright6 = "66D4FF";
      bright7 = "F5F7FA";
 
+     cursor = "2AABEE 000000";
    };
  };
 }
