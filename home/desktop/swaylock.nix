@@ -7,7 +7,7 @@ let
     panelBorder = "ffffff1f";
     accent = "78d2ff";
   };
-  lockpaper = "${../../../assets/lockpaper.jpg}";
+  lockpaper = "${../../assets/lockpaper.jpg}";
 in {
   programs.swaylock = {
     enable = true;

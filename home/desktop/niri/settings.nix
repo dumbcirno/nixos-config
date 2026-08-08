@@ -1,6 +1,6 @@
 { lib, linuxUnstablePkgs, pkgs, ... }:
 let
-  wallpaper = "${../../../../assets/wallpaper.png}";
+  wallpaper = "${../../../assets/wallpaper.png}";
   exportPortalEnv = import ./portal-env-script.nix pkgs;
   launchWaybar = lib.getExe (import ../waybar/launch-waybar.nix {
     inherit lib pkgs;

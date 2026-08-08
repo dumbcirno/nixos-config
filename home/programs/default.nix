@@ -7,5 +7,6 @@
     ./cursor.nix
     ./zellij.nix
     ./fastfetch
+    ./rider.nix
   ];
 }

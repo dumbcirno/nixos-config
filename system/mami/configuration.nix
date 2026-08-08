@@ -1,6 +1,23 @@
 { config, lib, linuxUnstablePkgs, pkgs, ... }:
 
 {
+  imports = [
+    ./users.nix
+    ./pam-homes.nix
+    ./disko-homes.nix
+  ];
+
+  # Fill these on mami after creating/formatting the two home partitions.
+  # See docs/luks-homes.md — use different LUKS passphrases per user.
+  mami.madoka = {
+    partUuid = "REPLACE_AFTER_PARTITIONING";
+    luksUuid = "REPLACE_AFTER_LUKS_FORMAT";
+  };
+  mami.homura = {
+    partUuid = "REPLACE_AFTER_PARTITIONING";
+    luksUuid = "REPLACE_AFTER_LUKS_FORMAT";
+  };
+
   boot.loader = {
     grub = {
       enable = true;
@@ -37,6 +54,7 @@
     pipewire
     flatpak
     wireguard-tools
+    cryptsetup
     linuxUnstablePkgs.xwayland-satellite
     linuxUnstablePkgs.xwayland
     amnezia-vpn
@@ -53,22 +71,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  users.users.dumbcirno = {
-    name = "dumbcirno";
-    home = "/home/dumbcirno";
-    isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
-    shell = pkgs.fish;
-  };
-
-  home-manager.users.dumbcirno = {
-    home.username = "dumbcirno";
-    home.homeDirectory = "/home/dumbcirno";
-    home.stateVersion = "25.05";
-  };
-
-  home-manager.backupFileExtension = "hm-bak";
 
   fonts.packages = with pkgs; [
     jetbrains-mono
@@ -113,7 +115,7 @@
     lib.filter (s: s != "https://niri.cachix.org") config.nix.settings.substituters
   );
   nix.settings.trusted-public-keys = lib.mkOverride 1000 (
-    lib.filter (k: !lib.hasInfix "niri.cachix.org" k) config.nix.settings.trusted-public-keys
+    lib.filter (k: !lib.hasInfix "niri.cachix.org") config.nix.settings.trusted-public-keys
   );
 
   environment.sessionVariables = {
