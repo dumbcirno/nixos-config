@@ -3,10 +3,10 @@
 { ... }:
 {
   imports = [
-    ../../core
-    ../../theme
-    ../../desktop
-    ../../programs
-    ../../pkgs
+    ../core
+    ../theme
+    ../desktop
+    ../programs
+    ../pkgs
   ];
 }
