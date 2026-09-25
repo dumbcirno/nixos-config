@@ -11,12 +11,12 @@
   # Fill these on mami after creating/formatting the two home partitions.
   # See docs/luks-homes.md — use different LUKS passphrases per user.
   mami.madoka = {
-    partUuid = "REPLACE_AFTER_PARTITIONING";
-    luksUuid = "REPLACE_AFTER_LUKS_FORMAT";
+    partUuid = "ffeb7a33-7d99-4996-8abb-5e0557bd0650";  # nvme0n1p3 120G
+    luksUuid = "d307a027-1e13-454f-8106-dd07972b48c0";
   };
   mami.homura = {
-    partUuid = "REPLACE_AFTER_PARTITIONING";
-    luksUuid = "REPLACE_AFTER_LUKS_FORMAT";
+    partUuid = "9119ad4e-c39b-43a0-968a-c0d320f2ce68";  # nvme0n1p4 37G
+    luksUuid = "b23842c8-75a4-4a5b-93c2-34396ad14d57";
   };
 
   boot.loader = {
