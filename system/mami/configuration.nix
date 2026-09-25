@@ -112,6 +112,11 @@
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   # Strip niri.cachix.org if it was added by a previous generation or user nix.conf.
   nix.settings.substituters = lib.mkOverride 1000 (
     lib.filter (s: s != "https://niri.cachix.org") config.nix.settings.substituters

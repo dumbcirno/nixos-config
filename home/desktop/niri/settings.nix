@@ -34,6 +34,7 @@ in
 
     spawn-at-startup = [
       { argv = [ exportPortalEnv ]; }
+      { argv = [ "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1" ]; }
       { argv = [ "swaybg" "-m" "fill" "-i" wallpaper ]; }
       {
         argv = [

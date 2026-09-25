@@ -7,5 +7,6 @@
     swaybg
     swayidle
     mako
+    polkit_gnome
   ]);
 }
