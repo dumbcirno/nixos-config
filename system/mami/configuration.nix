@@ -5,6 +5,7 @@
     ./users.nix
     ./pam-homes.nix
     ./disko-homes.nix
+    # ./dev-services.nix  # docker/mongo/postgres/rabbitmq/bluetooth — off for LUKS test
   ];
 
   # Fill these on mami after creating/formatting the two home partitions.
@@ -77,6 +78,7 @@
     nerd-fonts.jetbrains-mono
     noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-color-emoji
   ];
 
   programs.fish.enable = true;
@@ -128,4 +130,5 @@
 
   system.stateVersion = "25.11";
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.android_sdk.accept_license = true;
 }

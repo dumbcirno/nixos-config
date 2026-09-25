@@ -15,5 +15,21 @@
     ./hysteria.nix
     ./gajim.nix
     ./nix-index.nix
+    ./chrome.nix
+    ./gh.nix
+    ./anki.nix
+    ./zoom.nix
+    ./trilium.nix
+    ./thunderbird.nix
+    ./librewolf.nix
+    ./obs.nix
+    ./qbittorrent.nix
+    ./camera.nix
+    ./media-tools.nix
+    ./wireshark.nix
+    ./cloud-tools.nix
+    ./db-clients.nix
+    ./postman.nix
+    ./android-studio.nix
   ];
 }
