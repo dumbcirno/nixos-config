@@ -5,7 +5,7 @@
     ./users.nix
     ./pam-homes.nix
     ./disko-homes.nix
-    # ./dev-services.nix  # docker/mongo/postgres/rabbitmq/bluetooth — off for LUKS test
+    ./dev-services.nix
   ];
 
   # Fill these on mami after creating/formatting the two home partitions.

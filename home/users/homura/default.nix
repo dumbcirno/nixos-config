@@ -3,26 +3,28 @@
   imports = [ ../shared.nix ];
 
   module = {
-    # Temporary LUKS test set — restore the full profile after.
+    # Shared shell / desktop helpers
     fish.enable = true;
     foot.enable = true;
-    fastfetch.enable = false;
+    fastfetch.enable = true;
     zellij.enable = false;
 
-    vscode.enable = true;
-    cursor.enable = true;
+    # Editors off in the secure profile
+    vscode.enable = false;
+    cursor.enable = false;
     rider.enable = false;
 
-    firefox.enable = true;
+    # Minimal packages + high-value apps
+    firefox.enable = false;
     neovim.enable = false;
-    git.enable = true;
+    git.enable = false;
     wl-clipboard.enable = true;
     telegram.enable = true;
     chafa.enable = false;
     nil.enable = false;
     nordic.enable = true;
     libqalculate.enable = false;
-    audio-tools.enable = false;
+    audio-tools.enable = true;
     devtools.enable = false;
     hysteria.enable = false;
     gajim.enable = false;
