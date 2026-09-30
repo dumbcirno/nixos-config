@@ -34,7 +34,7 @@
     gh.enable = true;
     anki.enable = true;
     zoom.enable = true;
-    trilium.enable = true;
+    trilium.enable = false;
     thunderbird.enable = true;
     librewolf.enable = true;
     obs.enable = true;
