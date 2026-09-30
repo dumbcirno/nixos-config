@@ -14,12 +14,12 @@
     cursor.enable = true;
     rider.enable = false;
 
-    # Packages (telegram stays off for madoka)
+    # Packages
     firefox.enable = true;
     neovim.enable = true;
     git.enable = true;
     wl-clipboard.enable = true;
-    telegram.enable = false;
+    telegram.enable = true;
     chafa.enable = true;
     nil.enable = true;
     nordic.enable = true;
