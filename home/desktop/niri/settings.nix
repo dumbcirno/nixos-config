@@ -91,6 +91,11 @@ in
       shadow = {
         enable = false;
       };
+      background-color = "#00ff00ff";
+    };
+
+    overview = {
+      backdrop-color = "#00ff00ff";
     };
 
     binds =
@@ -103,6 +108,8 @@ in
         "Mod+E".action.spawn = "nautilus";
         "Mod+V".action.toggle-window-floating = [ ];
         "Mod+F".action.fullscreen-window = [ ];
+        "Mod+Shift+F".action.toggle-windowed-fullscreen = [ ];
+        "Mod+Ctrl+Shift+F".action.maximize-window-to-edges = [ ];
         "Mod+D".action.spawn = [ "walker" ];
         "Mod+J".action.toggle-column-tabbed-display = [ ];
         "Mod+Left".action.focus-column-left = [ ];
