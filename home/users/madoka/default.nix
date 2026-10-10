@@ -41,6 +41,7 @@
     qbittorrent.enable = true;
     camera.enable = true;
     media-tools.enable = true;
+    media-viewers.enable = true;
     wireshark.enable = true;
     cloud-tools.enable = true;
     db-clients.enable = true;

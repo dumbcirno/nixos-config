@@ -26,6 +26,7 @@
     ./qbittorrent.nix
     ./camera.nix
     ./media-tools.nix
+    ./media-viewers.nix
     ./wireshark.nix
     ./cloud-tools.nix
     ./db-clients.nix
