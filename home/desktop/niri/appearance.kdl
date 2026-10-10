@@ -23,6 +23,15 @@ window-rule {
 }
 
 window-rule {
+    match app-id="^dropdown$"
+    open-floating true
+    open-focused true
+    default-column-width { proportion 1.0; }
+    default-window-height { proportion 0.4; }
+    default-floating-position x=0 y=0 relative-to="top"
+}
+
+window-rule {
     match app-id="org.gnome.Nautilus"
 
     background-effect {

@@ -2,6 +2,11 @@
 let
   wallpaper = "${../../../assets/wallpaper.png}";
   exportPortalEnv = import ./portal-env-script.nix pkgs;
+  dropdownAppId = "dropdown";
+  toggleDropdown = lib.getExe (import ./toggle-dropdown.nix {
+    inherit lib pkgs;
+    niriPackage = linuxUnstablePkgs.niri;
+  });
   launchWaybar = lib.getExe (import ../waybar/launch-waybar.nix {
     inherit lib pkgs;
     waybarPackage = linuxUnstablePkgs.waybar;
@@ -31,6 +36,21 @@ in
     xwayland-satellite.path = lib.getExe linuxUnstablePkgs.xwayland-satellite;
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+
+    window-rules = [
+      {
+        matches = [ { app-id = "^${dropdownAppId}$"; } ];
+        open-floating = true;
+        open-focused = true;
+        default-column-width.proportion = 1.0;
+        default-window-height.proportion = 0.4;
+        default-floating-position = {
+          x = 0;
+          y = 0;
+          relative-to = "top";
+        };
+      }
+    ];
 
     spawn-at-startup = [
       { argv = [ exportPortalEnv ]; }
@@ -91,15 +111,19 @@ in
       shadow = {
         enable = false;
       };
-      background-color = "#00ff00ff";
+      background-color = "#C34043";
     };
 
     overview = {
-      backdrop-color = "#00ff00ff";
+      backdrop-color = "#C34043";
     };
 
     binds =
       {
+        "Mod+Grave".action.spawn = toggleDropdown;
+        "Mod+Shift+Grave".action.spawn = toggleDropdown;
+        "Mod+Cyrillic_io".action.spawn = toggleDropdown;
+        "Mod+Shift+Cyrillic_io".action.spawn = toggleDropdown;
         "Mod+Return".action.spawn = "foot";
         "Mod+Shift+Return".action.spawn = [
           "foot"
