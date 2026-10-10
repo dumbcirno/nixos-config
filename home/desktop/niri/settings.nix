@@ -101,6 +101,14 @@ in
     binds =
       {
         "Mod+Return".action.spawn = "foot";
+        "Mod+Shift+Return".action.spawn = [
+          "foot"
+          "-T"
+          "ubuntu"
+          "distrobox"
+          "enter"
+          "ubuntu"
+        ];
         "Mod+Q".action.close-window = [ ];
         "Mod+M".action.quit = {
           skip-confirmation = true;

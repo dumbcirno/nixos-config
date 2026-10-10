@@ -46,5 +46,6 @@
     db-clients.enable = true;
     postman.enable = true;
     android-studio.enable = true;
+    distrobox.enable = true;
   };
 }

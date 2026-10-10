@@ -10,6 +10,7 @@
       "wheel"
       "video"
       "networkmanager"
+      "docker"
     ];
     shell = pkgs.fish;
   };

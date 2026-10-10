@@ -31,5 +31,6 @@
     ./db-clients.nix
     ./postman.nix
     ./android-studio.nix
+    ./distrobox.nix
   ];
 }
