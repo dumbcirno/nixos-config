@@ -49,6 +49,8 @@ in
         set -g fish_pager_color_progress brwhite --background=cyan --bold
         set -g fish_pager_color_selected_background -r
 
+        bind \cl 'printf "\033[2J\033[3J\033[H"; commandline -f repaint'
+
         # Start a full niri session (systemd + waybar / walker) when launching from a TTY.
         function niri --wraps niri
           if not set -q WAYLAND_DISPLAY; and not set -q NIRI_SOCKET
