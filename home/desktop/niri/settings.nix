@@ -1,4 +1,4 @@
-{ lib, linuxUnstablePkgs, pkgs, ... }:
+{ lib, linuxUnstablePkgs, pkgs, config, ... }:
 let
   wallpaper = "${../../../assets/wallpaper.png}";
   exportPortalEnv = import ./portal-env-script.nix pkgs;
@@ -13,6 +13,11 @@ let
   });
   toggleWaybar = lib.getExe (import ../waybar/toggle-waybar.nix {
     inherit pkgs launchWaybar;
+  });
+  toggleClipboard = lib.getExe (import ../walker/toggle-clipboard.nix {
+    inherit lib pkgs;
+    walkerPackage = config.programs.walker.package;
+    niriPackage = linuxUnstablePkgs.niri;
   });
   workspaceFocusBinds = lib.listToAttrs (
     map (x: {
@@ -111,11 +116,11 @@ in
       shadow = {
         enable = false;
       };
-      background-color = "#C34043";
+      background-color = "#000";
     };
 
     overview = {
-      backdrop-color = "#C34043";
+      backdrop-color = "#000";
     };
 
     binds =
@@ -143,6 +148,8 @@ in
         "Mod+Shift+F".action.toggle-windowed-fullscreen = [ ];
         "Mod+Ctrl+Shift+F".action.maximize-window-to-edges = [ ];
         "Mod+D".action.spawn = [ "walker" ];
+        "Mod+Shift+V".action.spawn = toggleClipboard;
+        "Mod+Shift+Cyrillic_em".action.spawn = toggleClipboard;
         "Mod+J".action.toggle-column-tabbed-display = [ ];
         "Mod+Left".action.focus-column-left = [ ];
         "Mod+Right".action.focus-column-right = [ ];

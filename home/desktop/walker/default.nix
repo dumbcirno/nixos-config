@@ -1,5 +1,13 @@
-{ ... }:
+{ lib, pkgs, linuxUnstablePkgs, config, ... }:
 {
+  home.packages = [
+    (import ./toggle-clipboard.nix {
+      inherit lib pkgs;
+      walkerPackage = config.programs.walker.package;
+      niriPackage = linuxUnstablePkgs.niri;
+    })
+  ];
+
   programs.walker = {
     enable = true;
     runAsService = false;
@@ -80,5 +88,9 @@
   };
   };
 
-  programs.elephant.installService = false;
+  programs.elephant.installService = true;
+
+  xdg.configFile."elephant/clipboard.toml".text = ''
+    max_items = 100
+  '';
 }
