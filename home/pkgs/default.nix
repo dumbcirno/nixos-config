@@ -33,5 +33,6 @@
     ./postman.nix
     ./android-studio.nix
     ./distrobox.nix
+    ./libreoffice.nix
   ];
 }

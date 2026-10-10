@@ -48,5 +48,6 @@
     postman.enable = true;
     android-studio.enable = true;
     distrobox.enable = true;
+    libreoffice.enable = true;
   };
 }

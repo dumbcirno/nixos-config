@@ -2,16 +2,16 @@
 let
   glass = {
     fg = "#e9eef5";
-    bg = "#000000";
-    pane = "#000000";
-    sidebar = "#0b0f14";
-    elevated = "#0d141d";
-    border = "rgba(255, 255, 255, 0.12)";
+    bg = "#1f1f28";
+    pane = "#16161d";
+    sidebar = "#18181f";
+    elevated = "#2a2a37";
+    border = "rgba(255, 255, 255, 0.08)";
     hover = "rgba(255, 255, 255, 0.06)";
     button = "rgba(255, 255, 255, 0.08)";
     buttonHover = "rgba(255, 255, 255, 0.14)";
-    accent = "#2aabee";
-    accentFg = "#000000";
+    accent = "#54546d";
+    accentFg = "#e9eef5";
     selection = "#0d141d";
   };
 
