@@ -38,6 +38,8 @@ let
 in
 {
   programs.niri.settings = {
+    clipboard.disable-primary = true;
+
     xwayland-satellite.path = lib.getExe linuxUnstablePkgs.xwayland-satellite;
 
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
