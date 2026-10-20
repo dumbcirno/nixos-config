@@ -3,10 +3,11 @@ let
   cfg = config.module.devtools;
 in
 {
-  options.module.devtools.enable = lib.mkEnableOption "nodejs python gcc dotnet sdk go rust jdk pnpm cmake playwright nswag";
+  options.module.devtools.enable = lib.mkEnableOption "nodejs typescript python gcc dotnet sdk go rust jdk pnpm cmake playwright nswag";
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       nodejs
+      typescript
       python3
       gcc
       dotnet-sdk_8
