@@ -4,6 +4,7 @@
     ./firefox.nix
     ./neovim.nix
     ./git.nix
+    ./gnumake.nix
     ./wl-clipboard.nix
     ./telegram.nix
     ./chafa.nix

@@ -18,6 +18,7 @@
     firefox.enable = true;
     neovim.enable = true;
     git.enable = true;
+    gnumake.enable = true;
     wl-clipboard.enable = true;
     telegram.enable = true;
     chafa.enable = true;
