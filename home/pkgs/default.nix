@@ -5,6 +5,8 @@
     ./neovim.nix
     ./git.nix
     ./gnumake.nix
+    ./pip.nix
+    ./x11-dev.nix
     ./wl-clipboard.nix
     ./telegram.nix
     ./chafa.nix

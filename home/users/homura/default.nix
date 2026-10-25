@@ -19,6 +19,8 @@
     neovim.enable = false;
     git.enable = false;
     gnumake.enable = true;
+    pip.enable = false;
+    x11-dev.enable = false;
     wl-clipboard.enable = true;
     telegram.enable = true;
     chafa.enable = false;
